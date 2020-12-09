@@ -8,11 +8,8 @@ class Bulletin{
         const divTag = document.querySelector("#li-container") 
         divTag.innerHTML += 
         `
-        <ul>
           <h2> ${this.title} </h2>
           <p> ${this.content} </p>
-        </ul>
-
         `
     }
 }
