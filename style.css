@@ -1,0 +1,41 @@
+html {
+    height: 100%;
+    width: 100%;
+    font-family: "Titillium Web", sans-serif;
+  }
+  
+  body {
+    min-height: 100%;
+    min-width: 100%;
+    background: linear-gradient(rgb(192, 237, 255), rgb(130, 238, 130));
+  }
+  
+  button {
+    font-size: 7px;
+  }
+  
+  #body-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 15px 20px 18px 18px;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px #333; 
+  } 
+
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  } 
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
