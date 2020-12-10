@@ -26,12 +26,35 @@ console.log("connecting...")
    e.preventDefault() 
 
    const title = document.querySelector("#title").value
-   const content = document.querySelector("#content").value
+   const content = document.querySelector("#content").value 
    //console.log(title, content)  
 
-   
-   //fetch(`${BACKEND_URL}/bulletins`, option)
+   const options = {
+     method: "POST",
+     headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+     },
+     body: JSON.stringify({bulletin: {title: title, content: content}})
+   }
 
+   
+   fetch(`${BACKEND_URL}/bulletins`, options)
+   .then(response => response.json())
+   //.then(bulletinsObj => console.log(bulletinsObj.data))
+   .then(bulletinsObj => renderBulletin(bulletinsObj.data))
+   
+ } 
+
+ function renderBulletin(bulletin){
+   //console.log(bulletin)
+   const div = document.querySelector("#bullets-container")
+   const htag = document.createElement("h2") 
+   const ptag = document.createElement("p") 
+   htag.innerText = bulletin.attributes.title
+   ptag.innerText = bulletin.attributes.content
+   div.appendChild(htag) 
+   div.appendChild(ptag)
  }
 
  //submitForm()
