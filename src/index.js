@@ -1,7 +1,37 @@
 console.log("connecting...") 
 
+const BACKEND_URL = "http://localhost:3000/"; 
 
- const BACKEND_URL = "http://localhost:3000/";  
+
+
+
+function fetchBulletin(){
+  fetch(`${BACKEND_URL}/bulletins`)
+    .then(response => response.json())
+    .then(parsedBulletins => {
+  
+      for(const bulletin of parsedBulletins) { 
+          //console.log("rails obj", bulletin) 
+          let b = new Bulletin( bulletin.data.attributes.title, bulletin.data.attributes.content)
+          //console.log("js obj", b) 
+          b.renderBulletin()
+      }
+    }) 
+  } 
+  
+  fetchBulletin() 
+
+
+
+
+
+
+
+
+
+
+
+ //const BACKEND_URL = "http://localhost:3000/";  
 
  const bulletinForm = document.querySelector("#bulletin-form") 
  //console.log(bulletinForm) 
@@ -25,10 +55,28 @@ console.log("connecting...")
    }
 
    
-   fetch(`${BACKEND_URL}/bulletins`, options)
-   .then(response => response.json())
-   //.then(bulletinsObj => console.log(bulletinsObj.data))
-   .then(bulletinsObj => renderBulletin(bulletinsObj.data))
+  //  fetch(`${BACKEND_URL}/bulletins`, options)
+  //  .then(response => response.json())
+  //  //.then(bulletinsObj => console.log(bulletinsObj.data))
+  //  .then(bulletinsObj => renderBulletin(bulletinsObj.data)) 
+
+
+
+    fetch(`${BACKEND_URL}/bulletins`)
+      .then(response => response.json())
+      .then(parsedBulletins => {
+    
+        for(const bulletin of parsedBulletins) { 
+            //console.log("rails obj", bulletin) 
+            let b = new Bulletin( bulletin.data.attributes.title, bulletin.data.attributes.content)
+            //console.log("js obj", b) 
+            b.renderBulletin()
+        }
+      }) 
+
+
+
+
    
  } 
 
@@ -54,16 +102,6 @@ console.log("connecting...")
 //  } 
 
 
-// function fetchBulletin(){
-//   fetch(`${BACKEND_URL}/bulletins`)
-//    .then(response => response.json())
-//    .then(console.log)
-//    //.then(Obj => Obj.data.forEach(renderBulletin))
-  
-// } 
-
-// fetchBulletin() 
-
 
 function fetchBulletin(){
 fetch(`${BACKEND_URL}/bulletins`)
@@ -71,12 +109,14 @@ fetch(`${BACKEND_URL}/bulletins`)
   .then(parsedBulletins => {
 
     for(const bulletin of parsedBulletins) { 
-        console.log("rails obj", bulletin) 
+        //console.log("rails obj", bulletin) 
         let b = new Bulletin( bulletin.data.attributes.title, bulletin.data.attributes.content)
-        console.log("js obj", b) 
+        //console.log("js obj", b) 
         b.renderBulletin()
     }
   }) 
 } 
 
-fetchBulletin()
+fetchBulletin() 
+
+
