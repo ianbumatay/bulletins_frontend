@@ -23,16 +23,6 @@ function fetchBulletin(){
 
 
 
-
-
-
-
-
-
-
-
- //const BACKEND_URL = "http://localhost:3000/";  
-
  const bulletinForm = document.querySelector("#bulletin-form") 
  //console.log(bulletinForm) 
 
@@ -55,43 +45,26 @@ function fetchBulletin(){
    }
 
    
-  //  fetch(`${BACKEND_URL}/bulletins`, options)
-  //  .then(response => response.json())
-  //  //.then(bulletinsObj => console.log(bulletinsObj.data))
-  //  .then(bulletinsObj => renderBulletin(bulletinsObj.data)) 
-
-
-
-    fetch(`${BACKEND_URL}/bulletins`)
-      .then(response => response.json())
-      .then(parsedBulletins => {
-    
-        for(const bulletin of parsedBulletins) { 
-            //console.log("rails obj", bulletin) 
-            let b = new Bulletin( bulletin.data.attributes.title, bulletin.data.attributes.content)
-            //console.log("js obj", b) 
-            b.renderBulletin()
-        }
-      }) 
-
-
-
+   fetch(`${BACKEND_URL}/bulletins`, options)
+   .then(response => response.json())
+   //.then(bulletinsObj => console.log(bulletinsObj.data))
+   .then(bulletinsObj => renderForm(bulletinsObj.data)) 
 
    
  } 
 
-//  function renderBulletin(bulletin){
-//    //console.log(bulletin)
-//    const div = document.querySelector("#bullets-container")
-//    const htag = document.createElement("h2") 
-//    const ptag = document.createElement("p") 
-//    htag.innerText = bulletin.attributes.title
-//    ptag.innerText = bulletin.attributes.content
-//    div.appendChild(htag) 
-//    div.appendChild(ptag)
-//  }
+ function renderForm(bulletin){
+   //console.log(bulletin)
+   const div = document.querySelector("#bullets-container")
+   const htag = document.createElement("h2") 
+   const ptag = document.createElement("p") 
+   htag.innerText = bulletin.attributes.title
+   ptag.innerText = bulletin.attributes.content
+   div.appendChild(htag) 
+   div.appendChild(ptag)
+ }
 
-//  function renderBUlletin(bulletin){ 
+//  function renderBulletin(bulletin){ 
 //   const div = document.querySelector("#bullets-container") 
 //   div.innetHTML += 
 //   `    
@@ -103,20 +76,6 @@ function fetchBulletin(){
 
 
 
-function fetchBulletin(){
-fetch(`${BACKEND_URL}/bulletins`)
-  .then(response => response.json())
-  .then(parsedBulletins => {
-
-    for(const bulletin of parsedBulletins) { 
-        //console.log("rails obj", bulletin) 
-        let b = new Bulletin( bulletin.data.attributes.title, bulletin.data.attributes.content)
-        //console.log("js obj", b) 
-        b.renderBulletin()
-    }
-  }) 
-} 
-
-fetchBulletin() 
-
+ 
+//fetchBulletin() 
 
