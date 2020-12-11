@@ -1,6 +1,6 @@
 class Bulletin{
-    constructor(title, content){
-        //this.id = id 
+    constructor(id, title, content){
+        this.id = id 
         this.title = title 
         this.content = content
     } 

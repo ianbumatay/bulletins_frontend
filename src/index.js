@@ -10,7 +10,7 @@ function fetchBulletin(){
   
       for(const bulletin of parsedBulletins) { 
           //console.log("rails obj", bulletin) 
-          let b = new Bulletin( bulletin.data.attributes.title, bulletin.data.attributes.content)
+          let b = new Bulletin( bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content)
           //console.log("js obj", b) 
           b.renderBulletin()
       }
@@ -62,7 +62,7 @@ function fetchBulletin(){
     .then(response => response.json())
     .then(bulletin => { console.log("rails obj", bulletin) 
 
-          let b = new Bulletin( bulletin.data.attributes.title, bulletin.data.attributes.content)
+          let b = new Bulletin(bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content)
           console.log("js obj", b) 
           b.renderBulletin()
       
@@ -80,13 +80,28 @@ function fetchBulletin(){
 //    ptag.innerText = bulletin.attributes.content
 //    div.appendChild(htag) 
 //    div.appendChild(ptag)
-//  }  
+//  }   
 
 
+const b = document.querySelectorAll(".delete-btn")
+
+
+
+function deleteUser(){
+
+  //debugger;
+
+    let bulletinId = parseInt(event.target.dataset.id) 
+
+    fetch(`${BACKEND_URL}/bulletins/${bulletinId}`, {
+      method: "DELETE" 
+    }) 
+    this.location.reload()
+}
 
 
 
 
  
-//fetchBulletin() 
+
 
