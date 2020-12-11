@@ -33,9 +33,10 @@ function fetchBulletin(){
 
  const bulletinForm = document.querySelector("#bulletin-form") 
  //console.log(bulletinForm) 
-
  bulletinForm.addEventListener("submit", submitForm) 
      //console.log("clicked")
+
+     
  function submitForm(e){
    e.preventDefault() 
 
@@ -83,7 +84,6 @@ function fetchBulletin(){
 //  }   
 
 
-const b = document.querySelectorAll(".delete-btn")
 
 
 
