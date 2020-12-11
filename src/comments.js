@@ -5,9 +5,7 @@ class Comment {
         this.content = content
     } 
 
-    createCommentsForm(){
-
-    }
+    
 
 } 
 
