@@ -11,7 +11,7 @@ class Bulletin{
       
           <h2> ${this.title} </h2>
           <p> ${this.content} </p>
-
+          <button class="delete-btn" data-id = ${this.id} onclick ="deleteUser()"> X </button>
         `  
    } 
 

@@ -17,7 +17,7 @@ function fetchBulletin(){
     }) 
   } 
   
- //fetchBulletin() 
+ fetchBulletin() 
 
 //  function renderBulletin(bulletin){ 
 //   const div = document.querySelector("#bullets-container") 
@@ -84,12 +84,9 @@ function fetchBulletin(){
 
 
 
- //renderForm();
-
-
 
 
 
  
-fetchBulletin() 
+//fetchBulletin() 
 

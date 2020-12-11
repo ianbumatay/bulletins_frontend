@@ -7,8 +7,9 @@ html {
   body {
     min-height: 100%;
     min-width: 100%;
-    background: linear-gradient(rgb(192, 237, 255), rgb(130, 238, 130));
-  }
+     /* background: linear-gradient(rgb(192, 237, 255), rgb(130, 238, 130));  */
+    
+  } 
   
   button {
     font-size: 7px;
