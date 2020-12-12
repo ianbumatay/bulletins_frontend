@@ -1,6 +1,8 @@
 console.log("connecting...") 
 
-const BACKEND_URL = "http://localhost:3000/"; 
+const BACKEND_URL = "http://localhost:3000/";  
+
+
 
 
 function fetchBulletin(){
@@ -11,23 +13,43 @@ function fetchBulletin(){
       for(const bulletin of parsedBulletins) { 
           //console.log("rails obj", bulletin) 
           let b = new Bulletin( bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content)
-          //console.log("js obj", b) 
+          console.log("js obj", b) 
           b.renderBulletin()
-      }
-    }) 
-  } 
-  
- fetchBulletin() 
+    }
+  }) 
+}   
 
-//  function renderBulletin(bulletin){ 
-//   const div = document.querySelector("#bullets-container") 
-//   div.innetHTML += 
-//   `    
-//    <h2> ${this.title} </h2>
-//    <p> ${this.content} </p>
-  
-//   `
-//  } 
+fetchBulletin()  
+
+
+
+
+
+//   function renderBulletin(bulletin){ 
+//     console.log(bulletin)
+
+//     const divTag = document.querySelector("#bullets-container")  
+//     const hTag = document.createElement("h2")
+//     const pTag = document.createElement("p")
+
+//     hTag.innerText = bulletin.data.attributes.title 
+//     pTag.innerText = bulletin.data.attributes.content
+
+//     divTag.appendChild(hTag)
+//     divTag.appendChild(pTag)
+
+
+//   } 
+
+//   function fetchBulletin(){
+//     fetch(`${BACKEND_URL}/bulletins`)
+//       .then(response => response.json())
+//       .then(bulletins =>  bulletins.forEach(renderBulletin))
+        
+//  }  
+    
+
+        
 
 
 
@@ -36,7 +58,7 @@ function fetchBulletin(){
  bulletinForm.addEventListener("submit", submitForm) 
      //console.log("clicked")
 
-     
+
  function submitForm(e){
    e.preventDefault() 
 
@@ -54,10 +76,6 @@ function fetchBulletin(){
    }
 
    
-  //  fetch(`${BACKEND_URL}/bulletins`, options)
-  //  .then(response => response.json())
-  //  //.then(bulletinsObj => console.log(bulletinsObj.data))
-  //  .then(bulletinsObj => renderForm(bulletinsObj.data)) 
 
   fetch(`${BACKEND_URL}/bulletins`, options)
     .then(response => response.json())
@@ -68,23 +86,8 @@ function fetchBulletin(){
           b.renderBulletin()
       
     }) 
-
    
  } 
-
-//  function renderForm(bulletin){
-//    //console.log(bulletin)
-//    const div = document.querySelector("#bullets-container")
-//    const htag = document.createElement("h2") 
-//    const ptag = document.createElement("p") 
-//    htag.innerText = bulletin.attributes.title
-//    ptag.innerText = bulletin.attributes.content
-//    div.appendChild(htag) 
-//    div.appendChild(ptag)
-//  }   
-
-
-
 
 
 function deleteUser(){
@@ -102,6 +105,5 @@ function deleteUser(){
 
 
 
- 
 
 
