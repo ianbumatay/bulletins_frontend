@@ -5,7 +5,6 @@ class Comment {
         this.content = content
     } 
 
-    
 
 } 
 

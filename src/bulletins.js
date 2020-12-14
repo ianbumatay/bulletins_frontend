@@ -5,20 +5,25 @@ class Bulletin{
         this.content = content
     } 
     renderBulletin(){
+
         const divTag = document.querySelector("#bullets-container") 
-        divTag.innerHTML += 
-        `
+        // divTag.innerHTML += 
+        // `
           
-          <h2> ${this.title} </h2>
-          <p> ${this.content} </p>
-          <button class="delete-btn" data-id = ${this.id} onclick ="deleteUser()"> X </button><br>
+        //   <h2> ${this.title} </h2>
+        //   <p> ${this.content} </p>
+        //   <button class="delete-btn" data-id = ${this.id} onclick ="deleteUser()"> X </button><br> 
 
-          <form> 
-            <input placeholder="comment">
-            <input type="submit" value="+">
-          </form>  
 
-        `  
+        // `  
+
+        const hTag = document.createElement("h2")
+        hTag.innerText = this.title
+
+        const pTag = document.createElement("p")
+        pTag.innerText = this.content 
+
+        divTag.append(hTag, pTag)
    } 
 
   
