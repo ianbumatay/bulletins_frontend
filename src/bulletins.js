@@ -4,9 +4,9 @@ class Bulletin{
         this.title = title 
         this.content = content
     } 
-    renderBulletin(){
+    // renderBulletin(){
 
-        const divTag = document.querySelector("#bullets-container") 
+        // const divTag = document.querySelector("#bullets-container") 
   //       divTag.innerHTML += 
   //       `
           
@@ -17,23 +17,23 @@ class Bulletin{
 
   //       `  
         
-        const contentContainer = document.createElement("div")
-        const hTag = document.createElement("h2")
-        hTag.innerText = this.title
+  //       const contentContainer = document.createElement("div")
+  //       const hTag = document.createElement("h2")
+  //       hTag.innerText = this.title
 
-        const pTag = document.createElement("p")
-        pTag.innerText = this.content 
+  //       const pTag = document.createElement("p")
+  //       pTag.innerText = this.content 
+ 
+  //       divTag.appendChild(contentContainer)
 
         
-        divTag.appendChild(contentContainer)
+  //        const commentForm = document.createElement("form") 
+  //        commentForm.innerHTML += `<input =type="text" id="comment" placeholder="comment"> <input type="submit">` 
+   
 
-        
-         const commentForm = document.createElement("form") 
-         commentForm.innerHTML += `<input =type="text" id="comment" placeholder="comment"> <input type="submit">`
-
-         contentContainer.append(hTag, pTag, commentForm)
-   } 
+  //        contentContainer.append(hTag, pTag, commentForm)
+  //  } 
 
   
 
-} // class BUlletin end
+} // class BUlletin 
