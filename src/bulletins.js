@@ -7,23 +7,31 @@ class Bulletin{
     renderBulletin(){
 
         const divTag = document.querySelector("#bullets-container") 
-        // divTag.innerHTML += 
-        // `
+  //       divTag.innerHTML += 
+  //       `
           
-        //   <h2> ${this.title} </h2>
-        //   <p> ${this.content} </p>
-        //   <button class="delete-btn" data-id = ${this.id} onclick ="deleteUser()"> X </button><br> 
+  //         <h2> ${this.title} </h2>
+  //         <p> ${this.content} </p>
+  //         <button class="delete-btn" data-id = ${this.id} onclick ="deleteUser()"> X </button><br> 
 
 
-        // `  
-
+  //       `  
+        
+        const contentContainer = document.createElement("div")
         const hTag = document.createElement("h2")
         hTag.innerText = this.title
 
         const pTag = document.createElement("p")
         pTag.innerText = this.content 
 
-        divTag.append(hTag, pTag)
+        
+        divTag.appendChild(contentContainer)
+
+        
+         const commentForm = document.createElement("form") 
+         commentForm.innerHTML += `<input =type="text" id="comment" placeholder="comment"> <input type="submit">`
+
+         contentContainer.append(hTag, pTag, commentForm)
    } 
 
   

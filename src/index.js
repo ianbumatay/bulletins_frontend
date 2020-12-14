@@ -3,8 +3,6 @@ console.log("connecting...")
 const BACKEND_URL = "http://localhost:3000/";  
 
 
-
-
 function fetchBulletin(){
   fetch(`${BACKEND_URL}/bulletins`)
     .then(response => response.json())
@@ -20,37 +18,6 @@ function fetchBulletin(){
 }   
 
 fetchBulletin()  
-
-
-
-
-
-//   function renderBulletin(bulletin){ 
-//     console.log(bulletin)
-
-//     const divTag = document.querySelector("#bullets-container")  
-//     const hTag = document.createElement("h2")
-//     const pTag = document.createElement("p")
-
-//     hTag.innerText = bulletin.data.attributes.title 
-//     pTag.innerText = bulletin.data.attributes.content
-
-//     divTag.appendChild(hTag)
-//     divTag.appendChild(pTag)
-
-
-//   } 
-
-//   function fetchBulletin(){
-//     fetch(`${BACKEND_URL}/bulletins`)
-//       .then(response => response.json())
-//       .then(bulletins =>  bulletins.forEach(renderBulletin))
-        
-//  }  
-    
-
-        
-
 
 
  const bulletinForm = document.querySelector("#bulletin-form") 
@@ -104,6 +71,6 @@ function deleteUser(){
 
 
 
-
+  
 
 
