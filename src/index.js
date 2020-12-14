@@ -74,34 +74,40 @@ console.log("connecting...")
 //}
 const BACKEND_URL = "http://localhost:3000/";  
 
-const bulletinForm = document.querySelector("#bulletin-form") 
-//const titleInput = document.querySelector("#title")
-//console.log(titleInput) 
-//const contentInput =document.querySelector("#content") 
-//console.log(content) 
 
-//add event 
-bulletinForm.addEventListener("submit", submitForm) 
+function fetchBulletins(){
+    fetch(`${BACKEND_URL}/bulletins`)
+      .then(response => response.json())
+      .then(bulletins => bulletins.forEach(renderBulletins))
+        
+  
+}  
 
-//create submitForm function 
+fetchBulletins() 
 
-function submitForm(e){
-  e.preventDefault() 
+function renderBulletins(bulletin){
 
-  const title = document.querySelector("#title").value
-  const content =document.querySelector("#content").value  
+  const divTag = document.querySelector("#bullets-container")
+  const createDiv = document.createElement("div")
 
-  const options = {
-         method: "POST",
-         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-         },
-         body: JSON.stringify({bulletin: {title: title, content: content}})
-       }
-       fetch(`${BACKEND_URL}/bulletins`, options)
-           .then(response => response.json())
-           .then(bulletins => renderBUlletin(bulletins)) 
+  divTag.append(createDiv) // Dynamic <div>
+
+  const hTag = document.createElement("h2")
+  hTag.innerText = bulletin.data.attributes.title
+
+  const pTag = document.createElement("p")
+  pTag.innerText = bulletin.data.attributes.content 
+
+  const commentForm = document.createElement("form")
+  commentForm.innerHTML += `<input type="text" id="comment-input" placeholder="comment"> <input type="submit">`
+
+  createDiv.append(hTag, pTag, commentForm) 
+
+  
 
 }
+
+
+
+
 
