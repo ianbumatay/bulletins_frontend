@@ -138,7 +138,7 @@ function renderBulletins(bulletin){
   pTag.innerText = bulletin.data.attributes.content 
 
   const commentForm = document.createElement("form")
-  commentForm.innerHTML += `<input type="text" id="comment-input" placeholder="comment"> <input type="submit">`
+  commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
   commentForm.addEventListener("submit", submitCommentForm)
 
   createDiv.append(hTag, pTag, commentForm) 
@@ -151,6 +151,7 @@ function submitCommentForm(e){
 
   const comment = e.target.children[0].value
    console.log(comment) 
+   
 
    const options = {
     method: "POST",
