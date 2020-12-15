@@ -152,7 +152,14 @@ function submitCommentForm(e){
   e.preventDefault() 
 
   const comment = e.target.children[0].value
-   console.log(comment) 
+   //console.log(comment)  
+   commentList = e.target.nextElementSibling
+   //console.log(commentList)
+
+   const createLi = document.createElement("li")
+   createLi.innerText = comment 
+
+   commentList.appendChild(createLi)
    
 
    const options = {
