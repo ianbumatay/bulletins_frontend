@@ -118,9 +118,6 @@ function fetchBulletin(){
 //   }
 
 
-
-
-
 // function renderBulletins(bulletin){
 
 //   // const divTag = document.querySelector("#bullets-container")
@@ -152,7 +149,9 @@ function renderComments(e){
   const comment = e.target.children[0].value
    //console.log(comment)  
    commentList = e.target.nextElementSibling
-   //console.log(commentList)
+   //console.log(commentList) 
+
+   const bulletinId = e.target.parentElement.dataset.id
 
    const createLi = document.createElement("li")
    createLi.innerText = comment 
@@ -160,11 +159,13 @@ function renderComments(e){
 
    commentList.appendChild(createLi) 
 
-   //submitCommentsForm(comment)
+   submitCommentsForm(comment, bulletinId)
+
+   e.target.reset()
 } 
 
 
-function submitCommentsForm(comment) {
+function submitCommentsForm(comment, bulletinId) {
 
    const options = {
     method: "POST",
@@ -172,12 +173,12 @@ function submitCommentsForm(comment) {
      'Accept': 'application/json',
      'Content-Type': 'application/json'
     },
-    body: JSON.stringify({comment: {content: comment}})
+    body: JSON.stringify({comment: {content: comment, bulletin_id: bulletinId}})
   }
 
  fetch(`${BACKEND_URL}/comments`, options) 
-   .then(response => response.json())
-   .then(renderComments)
+  //  .then(response => response.json())
+  //  .then(renderComments)
 
 }
 
