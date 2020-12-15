@@ -74,6 +74,8 @@ console.log("connecting...")
 //}
 const BACKEND_URL = "http://localhost:3000/";  
 
+
+
 const divTag = document.querySelector("#bullets-container")
 const createDiv = document.createElement("div") 
 
@@ -127,7 +129,7 @@ function renderBulletins(bulletin){
   // const divTag = document.querySelector("#bullets-container")
   // const createDiv = document.createElement("div")
 
-  divTag.append(createDiv) // Dynamic <div>
+  divTag.appendChild(createDiv) // Dynamic <div>
 
   const hTag = document.createElement("h2")
   hTag.innerText = bulletin.data.attributes.title
@@ -147,7 +149,7 @@ function renderBulletins(bulletin){
 function submitCommentForm(e){
   e.preventDefault() 
 
-  const comment = document.querySelector("#comment-input").value 
+  const comment = e.target.children[0].value
    console.log(comment) 
 
    const options = {
@@ -163,6 +165,8 @@ function submitCommentForm(e){
 
 
 
-}
+} 
+
+
 
 
