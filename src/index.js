@@ -74,6 +74,10 @@ console.log("connecting...")
 //}
 const BACKEND_URL = "http://localhost:3000/";  
 
+const divTag = document.querySelector("#bullets-container")
+const createDiv = document.createElement("div") 
+
+
 
 function fetchBulletins(){
     fetch(`${BACKEND_URL}/bulletins`)
@@ -83,31 +87,10 @@ function fetchBulletins(){
   
 }  
 
-fetchBulletins() 
+fetchBulletins()  
 
 
-
-function renderBulletins(bulletin){
-
-  const divTag = document.querySelector("#bullets-container")
-  const createDiv = document.createElement("div")
-
-  divTag.append(createDiv) // Dynamic <div>
-
-  const hTag = document.createElement("h2")
-  hTag.innerText = bulletin.data.attributes.title
-
-  const pTag = document.createElement("p")
-  pTag.innerText = bulletin.data.attributes.content 
-
-  const commentForm = document.createElement("form")
-  commentForm.innerHTML += `<input type="text" id="comment-input" placeholder="comment"> <input type="submit">`
-
-  createDiv.append(hTag, pTag, commentForm) 
-
-} 
-
- const bulletinForm = document.querySelector("#bulletin-form") 
+const bulletinForm = document.querySelector("#bulletin-form") 
  //console.log(bulletinForm) 
  bulletinForm.addEventListener("submit", submitForm) 
      //console.log("clicked")
@@ -129,11 +112,57 @@ function renderBulletins(bulletin){
      body: JSON.stringify({bulletin: {title: title, content: content}})
    }
 
-   
-
   fetch(`${BACKEND_URL}/bulletins`, options)
   .then(response => response.json())
   .then(bulletins => renderBulletins(bulletins))  
 
   }
+
+
+
+
+
+function renderBulletins(bulletin){
+
+  // const divTag = document.querySelector("#bullets-container")
+  // const createDiv = document.createElement("div")
+
+  divTag.append(createDiv) // Dynamic <div>
+
+  const hTag = document.createElement("h2")
+  hTag.innerText = bulletin.data.attributes.title
+
+  const pTag = document.createElement("p")
+  pTag.innerText = bulletin.data.attributes.content 
+
+  const commentForm = document.createElement("form")
+  commentForm.innerHTML += `<input type="text" id="comment-input" placeholder="comment"> <input type="submit">`
+  commentForm.addEventListener("submit", submitCommentForm)
+
+  createDiv.append(hTag, pTag, commentForm) 
+
+} 
+
+
+function submitCommentForm(e){
+  e.preventDefault() 
+
+  const comment = document.querySelector("#comment-input").value 
+   console.log(comment) 
+
+   const options = {
+    method: "POST",
+    headers: {
+     'Accept': 'application/json',
+     'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({comment: {content: comment}})
+  }
+
+ fetch(`${BACKEND_URL}/comments`, options)
+
+
+
+}
+
 
