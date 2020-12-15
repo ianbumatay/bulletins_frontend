@@ -49,14 +49,22 @@ class Bulletin{
   
     const commentForm = document.createElement("form")
     commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
-    commentForm.addEventListener("submit", renderComments)
-  
+    commentForm.addEventListener("submit", submitCommentForm)
+
     const createCommentList = document.createElement("ul")
-  
+
     createDiv.append(hTag, pTag, commentForm, createCommentList) 
   
   } 
 
   
 
-} // class BUlletin 
+} // class BUlletin  
+
+
+
+// const commentList = document.createElement('ul')
+// this.comments.forEach(comment => {
+//     let commentObj = new Comment(comment)
+//     console.log(commentObj)
+//     commentObj.renderComment(commentList)

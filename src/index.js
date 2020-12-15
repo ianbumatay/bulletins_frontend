@@ -11,13 +11,13 @@ function fetchBulletin(){
       for(const bulletin of parsedBulletins) { 
           //console.log("rails obj", bulletin) 
           let b = new Bulletin( bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content)
-          console.log("js obj", b) 
+          //console.log("js obj", b) 
           b.renderBulletins()
     }
   }) 
 }   
 
-//fetchBulletin()  
+fetchBulletin()  
 
 
  const bulletinForm = document.querySelector("#bulletin-form") 
@@ -31,7 +31,7 @@ function fetchBulletin(){
 
    const title = document.querySelector("#title").value
    const content = document.querySelector("#content").value 
-   console.log(title, content)  
+   //console.log(title, content)  
 
    const options = {
      method: "POST",
@@ -50,7 +50,7 @@ function fetchBulletin(){
       
       { 
       
-           console.log("rails obj", bulletin) 
+           //console.log("rails obj", bulletin) 
 
           let b = new Bulletin(bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content)
           //console.log("js obj", b) 
@@ -142,30 +142,21 @@ function fetchBulletin(){
 // } 
 
 
-function renderComments(e){
-  e.preventDefault()  
-
+function submitCommentForm(e) { 
+  e.preventDefault()
 
   const comment = e.target.children[0].value
    //console.log(comment)  
    commentList = e.target.nextElementSibling
    //console.log(commentList) 
 
-   const bulletinId = e.target.parentElement.dataset.id
-
    const createLi = document.createElement("li")
-   createLi.innerText = comment 
+   createLi.innerText = comment//.data.attributes.content
    
-
    commentList.appendChild(createLi) 
 
-   submitCommentsForm(comment, bulletinId)
+   const bulletinId = e.target.parentElement.dataset.id
 
-   e.target.reset()
-} 
-
-
-function submitCommentsForm(comment, bulletinId) {
 
    const options = {
     method: "POST",
@@ -176,14 +167,36 @@ function submitCommentsForm(comment, bulletinId) {
     body: JSON.stringify({comment: {content: comment, bulletin_id: bulletinId}})
   }
 
- fetch(`${BACKEND_URL}/comments`, options) 
-  //  .then(response => response.json())
-  //  .then(renderComments)
+   fetch(`${BACKEND_URL}/comments`, options) 
+    //  .then(response => response.json())
+    //  .then(comment => {
+      
+    //    //console.log("rails obj", comment) 
+    //    let c = new Comment (comment.data.attributes.content)
+    //    //console.log("js obj", b) 
+    //    c.renderComments()
 
+    // }) 
 }
 
- 
-
-fetchBulletin() 
 
 
+// function renderComments(){
+
+//   const comment = e.target.children[0].value
+//    //console.log(comment)  
+//     commentList = e.target.nextElementSibling
+//    //console.log(commentList) 
+
+//    const bulletinId = e.target.parentElement.dataset.id
+
+//    const createLi = document.createElement("li")
+//    createLi.innerText = comment.data.attributes.content
+   
+
+//    commentList.appendChild(createLi) 
+
+//    //submitCommentsForm(comment, bulletinId)
+
+   
+// } 
