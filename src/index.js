@@ -117,6 +117,7 @@ const bulletinForm = document.querySelector("#bulletin-form")
   fetch(`${BACKEND_URL}/bulletins`, options)
   .then(response => response.json())
   .then(bulletins => renderBulletins(bulletins))  
+  //renderBulletins()
 
   }
 
@@ -139,7 +140,7 @@ function renderBulletins(bulletin){
 
   const commentForm = document.createElement("form")
   commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
-  commentForm.addEventListener("submit", submitCommentForm)
+  commentForm.addEventListener("submit", renderComments)
 
   const createCommentList = document.createElement("ul")
 
@@ -148,7 +149,7 @@ function renderBulletins(bulletin){
 } 
 
 
-function submitCommentForm(e){
+function renderComments(e){
   e.preventDefault() 
 
   const comment = e.target.children[0].value
@@ -160,22 +161,22 @@ function submitCommentForm(e){
    createLi.innerText = comment 
 
    commentList.appendChild(createLi)
-   
-
-   const options = {
-    method: "POST",
-    headers: {
-     'Accept': 'application/json',
-     'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({comment: {content: comment}})
-  }
-
- fetch(`${BACKEND_URL}/comments`, options)
-
-
-
 } 
+
+//    const options = {
+//     method: "POST",
+//     headers: {
+//      'Accept': 'application/json',
+//      'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({comment: {content: comment}})
+//   }
+
+//  fetch(`${BACKEND_URL}/comments`, options)
+
+
+
+ 
 
 
 
