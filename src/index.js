@@ -141,7 +141,9 @@ function renderBulletins(bulletin){
   commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
   commentForm.addEventListener("submit", submitCommentForm)
 
-  createDiv.append(hTag, pTag, commentForm) 
+  const createCommentList = document.createElement("ul")
+
+  createDiv.append(hTag, pTag, commentForm, createCommentList) 
 
 } 
 
