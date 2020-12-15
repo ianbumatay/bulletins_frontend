@@ -85,6 +85,8 @@ function fetchBulletins(){
 
 fetchBulletins() 
 
+
+
 function renderBulletins(bulletin){
 
   const divTag = document.querySelector("#bullets-container")
@@ -103,11 +105,35 @@ function renderBulletins(bulletin){
 
   createDiv.append(hTag, pTag, commentForm) 
 
-  
+} 
 
-}
+ const bulletinForm = document.querySelector("#bulletin-form") 
+ //console.log(bulletinForm) 
+ bulletinForm.addEventListener("submit", submitForm) 
+     //console.log("clicked")
 
 
+ function submitForm(e){
+   e.preventDefault() 
 
+   const title = document.querySelector("#title").value
+   const content = document.querySelector("#content").value 
+   console.log(title, content)  
 
+   const options = {
+     method: "POST",
+     headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+     },
+     body: JSON.stringify({bulletin: {title: title, content: content}})
+   }
+
+   
+
+  fetch(`${BACKEND_URL}/bulletins`, options)
+  .then(response => response.json())
+  .then(bulletins => renderBulletins(bulletins))  
+
+  }
 
