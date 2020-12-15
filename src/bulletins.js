@@ -34,6 +34,29 @@ class Bulletin{
   //        contentContainer.append(hTag, pTag, commentForm)
   //  } 
 
+  renderBulletins(){
+
+     const divTag = document.querySelector("#bullets-container")
+     const createDiv = document.createElement("div")
+     createDiv.dataset.id = this.id
+  
+    divTag.appendChild(createDiv) // Dynamic <div>
+  
+    const hTag = document.createElement("h2")
+    hTag.innerText = this.title//bulletin.data.attributes.title
+    const pTag = document.createElement("p")
+    pTag.innerText = this.content//bulletin.data.attributes.content 
+  
+    const commentForm = document.createElement("form")
+    commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
+    commentForm.addEventListener("submit", renderComments)
+  
+    const createCommentList = document.createElement("ul")
+  
+    createDiv.append(hTag, pTag, commentForm, createCommentList) 
+  
+  } 
+
   
 
 } // class BUlletin 
