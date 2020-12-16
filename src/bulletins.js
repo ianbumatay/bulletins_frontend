@@ -44,7 +44,8 @@ class Bulletin{
     // })
     
 
-    createDiv.append(hTag, pTag, commentForm, createCommentList) 
+    //createDiv.append(hTag, pTag, commentForm, createCommentList)  
+    createDiv.append(hTag, pTag) 
   
   } 
 

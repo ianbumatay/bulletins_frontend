@@ -194,4 +194,6 @@ fetchBulletin()
 //    //submitCommentsForm(comment, bulletinId)
 
    
-// } 
+// }  
+
+
