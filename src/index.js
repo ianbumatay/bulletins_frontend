@@ -139,20 +139,23 @@ fetchBulletin()
 
 //   createDiv.append(hTag, pTag, commentForm, createCommentList) 
 
-// } 
+// }  
+
+
 
 
 function submitCommentForm(e) { 
   e.preventDefault()
 
   const comment = e.target.children[0].value
-   //console.log(comment)  
-   commentList = e.target.nextElementSibling
-   //console.log(commentList) 
-
-   const createLi = document.createElement("li")
-   createLi.innerText = comment//.data.attributes.content
+   //console.log(comment) 
    
+   //render
+   commentList = e.target.nextElementSibling
+   console.log(commentList) 
+   const createLi = document.createElement("li")
+   createLi.innerText = comment//.data.attributes.content 
+   //console.log(comment)
    commentList.appendChild(createLi) 
 
    const bulletinId = e.target.parentElement.dataset.id
@@ -177,14 +180,16 @@ function submitCommentForm(e) {
     //    c.renderComments()
 
     // }) 
-}
+} 
 
 
 
-// function renderComments(){
+
+// function renderComments(e){
 
 //   const comment = e.target.children[0].value
-//    //console.log(comment)  
+//    //console.log(comment) 
+
 //     commentList = e.target.nextElementSibling
 //    //console.log(commentList) 
 

@@ -17,22 +17,7 @@ class Bulletin{
 
   //       `  
         
-  //       const contentContainer = document.createElement("div")
-  //       const hTag = document.createElement("h2")
-  //       hTag.innerText = this.title
-
-  //       const pTag = document.createElement("p")
-  //       pTag.innerText = this.content 
- 
-  //       divTag.appendChild(contentContainer)
-
-        
-  //        const commentForm = document.createElement("form") 
-  //        commentForm.innerHTML += `<input =type="text" id="comment" placeholder="comment"> <input type="submit">` 
-   
-
-  //        contentContainer.append(hTag, pTag, commentForm)
-  //  } 
+  
 
   renderBulletins(){
 
@@ -52,6 +37,12 @@ class Bulletin{
     commentForm.addEventListener("submit", submitCommentForm)
 
     const createCommentList = document.createElement("ul")
+    // this.comments.forEach(comment => { 
+    //     const li = document.createElement("li")
+    //     li.innerText = this.content
+    //     createCommentList.appendChild(li)
+    // })
+    
 
     createDiv.append(hTag, pTag, commentForm, createCommentList) 
   
