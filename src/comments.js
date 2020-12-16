@@ -16,7 +16,8 @@ class Comment {
     <input type="submit">
 
     ` 
-    
+    commentForm.addEventListener("submit", submitCommentForm)
+
     divForm.appendChild(commentForm) 
   }
 
