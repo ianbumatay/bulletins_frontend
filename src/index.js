@@ -172,19 +172,33 @@ function submitCommentForm(e) {
     .then(response => response.json())
     .then(comment => {
       
-      //console.log(comments)
-      const c = new Comment(comment.data.id, comment.data.attributes.content )
+      console.log(comment)
+      const c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
+      console.log(c)
+      c.renderComments()
+      //Comment {id: "50", bulletin_id: undefined, content: "cghv"}
 
-     }) 
-  }
+    }) 
+  } 
+
+  function fetchComments(){
+  fetch(`${BACKEND_URL}/comments`)
+    .then(response => response.json())
+    .then(comments => {
+  
+      for(const comment of comments) { 
+          //console.log("rails obj", comment) 
+          let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
+          console.log(c)
+          //console.log("js obj", c) 
+          c.renderComments()
+    }
+  }) 
+}   
+
+fetchComments()
 
 
-//   function renderComments() {
-//     const ul = document.createElement("ul")
-//     const li = document.createElement("li")
-//     li.innerText = comment
-//     ul.appendChild(li)
-//  }
 
      
 
