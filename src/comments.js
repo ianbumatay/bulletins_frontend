@@ -5,7 +5,22 @@ class Comment {
         this.content = content
     }  
 
-  rendercomments() { 
+  createForm(){
+    const divForm = document.getElementById("div-form") 
+  
+    const commentForm = document.createElement("form")
+    commentForm.innerHTML += 
+    `
+    <input type="text"  placeholder="comment"> 
+
+    <input type="submit">
+
+    ` 
+    
+    divForm.appendChild(commentForm) 
+  }
+
+  renderComments() { 
     
     // const divForm = document.getElementById("div-form") 
   

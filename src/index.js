@@ -197,3 +197,18 @@ fetchBulletin()
 // }  
 
 
+function fetchComments(){
+  fetch(`${BACKEND_URL}/comments`)
+    .then(response => response.json())
+    .then(comments => {
+  
+      for(const comment of comments) { 
+          console.log("rails obj", comment) 
+          let c = new Comment( comment.data.attributes.content)
+          console.log("js obj", c) 
+          c.renderComments()
+    }
+  }) 
+}   
+
+fetchComments()  
