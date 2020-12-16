@@ -32,9 +32,9 @@ class Bulletin{
     const pTag = document.createElement("p")
     pTag.innerText = this.content//bulletin.data.attributes.content 
   
-    // const commentForm = document.createElement("form")
-    // commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
-    // commentForm.addEventListener("submit", submitCommentForm)
+    const commentForm = document.createElement("form")
+    commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
+    commentForm.addEventListener("submit", submitCommentForm)
 
     //const createCommentList = document.createElement("ul")
     // this.comments.forEach(comment => { 
@@ -45,7 +45,7 @@ class Bulletin{
     
 
     //createDiv.append(hTag, pTag, commentForm, createCommentList)  
-    createDiv.append(hTag, pTag) 
+    createDiv.append(hTag, pTag, commentForm) 
   
   } 
 

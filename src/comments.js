@@ -3,44 +3,43 @@ class Comment {
         this.id = id, 
         this.bulletin_id = bulletin_id
         this.content = content
-    }  
+    }   
 
-  createForm(){
-    const divForm = document.getElementById("div-form") 
-  
-    const commentForm = document.createElement("form")
-    commentForm.innerHTML += 
-    `
-    <input type="text"  placeholder="comment"> 
-
-    <input type="submit">
-
-    ` 
-    commentForm.addEventListener("submit", submitCommentForm)
-
-    divForm.appendChild(commentForm) 
-  }
-
-  renderComments() { 
     
-    // const divForm = document.getElementById("div-form") 
+  // createForm(){
+  //   const divForm = document.getElementById("div-form") 
   
-    // const commentForm = document.createElement("form")
-    // commentForm.innerHTML += 
-    // `
-    // <input type="text"  placeholder="comment"> 
+  //   const commentForm = document.createElement("form")
+  //   commentForm.innerHTML += 
+  //   `
+  //   <input type="text"  placeholder="comment"> 
 
-    // <input type="submit">
+  //   <input type="submit">
 
-    // ` 
-    // divForm.appendChild(commentForm) 
+  //   ` 
+  //   commentForm.addEventListener("submit", submitCommentForm)
 
-   const ul = document.createElement("ul")
-   const li = document.createElement("li")
-   li.innerText = this.content
-   ul.appendChild(li)
+  //   divForm.append(commentForm) 
+  // }
 
-  }
+    renderComments() { 
+    
+    const commentsContainer = document.querySelector("#comments-container")
+    commentsContainer.innerHTML += 
+    
+    `
+    <ul> 
+      <li> ${this.content}</li> 
+    </ul>
+
+    `
+
+  //  const ul = document.createElement("ul")
+  //  const li = document.createElement("li")
+  //  li.innerText = this.content
+  //  ul.appendChild(li)
+
+   }
 
 } 
 
