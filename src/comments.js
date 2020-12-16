@@ -6,21 +6,7 @@ class Comment {
     }   
 
     
-  // createForm(){
-  //   const divForm = document.getElementById("div-form") 
   
-  //   const commentForm = document.createElement("form")
-  //   commentForm.innerHTML += 
-  //   `
-  //   <input type="text"  placeholder="comment"> 
-
-  //   <input type="submit">
-
-  //   ` 
-  //   commentForm.addEventListener("submit", submitCommentForm)
-
-  //   divForm.append(commentForm) 
-  // }
 
     renderComments() { 
     

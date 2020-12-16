@@ -147,10 +147,11 @@ function submitCommentForm(e) {
   console.log(e.target)
 
   const userInput = e.target.children[0].value
-   console.log(userInput) 
+   //console.log(userInput) 
    
-   commentList = e.target.nextElementSibling
-   //console.log(commentList) 
+  commentList = e.target.nextElementSibling
+  console.log(commentList) 
+
    //const createLi = document.createElement("li")
    //createLi.innerText = userInput//.data.attributes.content 
    //console.log(comment)
@@ -172,10 +173,10 @@ function submitCommentForm(e) {
     .then(response => response.json())
     .then(comment => {
       
-      console.log(comment)
+      //console.log(comment)
       const c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
-      console.log(c)
-      c.renderComments()
+      //console.log(c)
+      //c.renderComments()
       //Comment {id: "50", bulletin_id: undefined, content: "cghv"}
 
     }) 
@@ -189,9 +190,9 @@ function submitCommentForm(e) {
       for(const comment of comments) { 
           //console.log("rails obj", comment) 
           let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
-          console.log(c)
+          //console.log(c)
           //console.log("js obj", c) 
-          c.renderComments()
+         // c.renderComments()
     }
   }) 
 }   
