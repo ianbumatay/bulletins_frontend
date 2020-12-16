@@ -144,43 +144,33 @@ fetchBulletin()
 
 
 
-function submitCommentForm(e) { 
-  e.preventDefault()
+// function submitCommentForm(e) { 
+//   e.preventDefault()
 
-  const comment = e.target.children[0].value
-   //console.log(comment) 
+//   const comment = e.target.children[0].value
+//    //console.log(comment) 
    
-   //render
-   commentList = e.target.nextElementSibling
-   console.log(commentList) 
-   const createLi = document.createElement("li")
-   createLi.innerText = comment//.data.attributes.content 
-   //console.log(comment)
-   commentList.appendChild(createLi) 
+//    //render
+//    commentList = e.target.nextElementSibling
+//    console.log(commentList) 
+//    const createLi = document.createElement("li")
+//    createLi.innerText = comment//.data.attributes.content 
+//    //console.log(comment)
+//    commentList.appendChild(createLi) 
 
-   const bulletinId = e.target.parentElement.dataset.id
+//    const bulletinId = e.target.parentElement.dataset.id
 
 
-   const options = {
-    method: "POST",
-    headers: {
-     'Accept': 'application/json',
-     'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({comment: {content: comment, bulletin_id: bulletinId}})
-  }
+//    const options = {
+//     method: "POST",
+//     headers: {
+//      'Accept': 'application/json',
+//      'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({comment: {content: comment, bulletin_id: bulletinId}})
+//   }
 
-   fetch(`${BACKEND_URL}/comments`, options) 
-    //  .then(response => response.json())
-    //  .then(comment => {
-      
-    //    //console.log("rails obj", comment) 
-    //    let c = new Comment (comment.data.attributes.content)
-    //    //console.log("js obj", b) 
-    //    c.renderComments()
-
-    // }) 
-} 
+  
 
 
 
