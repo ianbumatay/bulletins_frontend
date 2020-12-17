@@ -6,10 +6,12 @@ class Comment {
     }  
     
     
-    // renderComment(){ 
-    //   create
+    // renderComment(){  
 
-    //   const ul = document.querySelector("")
+
+      
+
+      
 
     // }
 

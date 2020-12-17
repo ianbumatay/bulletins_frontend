@@ -72,48 +72,48 @@ fetchBulletin()
 
 
 
-// function submitCommentForm(e) { 
-//   e.preventDefault()
+function submitCommentForm(e) { 
+  e.preventDefault()
 
-//   //console.log(e.target)
+  //console.log(e.target)
 
-//   const userInput = e.target.children[0].value
-//   //console.log(userInput)  
+  const userInput = e.target.children[0].value
+  //console.log(userInput)  
    
-//   commentList = e.target.nextElementSibling
-//   console.log(commentList) 
+  //commentList = e.target.nextElementSibling
+  //console.log(commentList) 
 
-//    const createLi = document.createElement("li")
-//    //console.log(createLi)
-//    createLi.innerText = userInput//.data.attributes.content 
-//    //console.log(comment)
-//    commentList.appendChild(createLi) 
+   //const createLi = document.createElement("li")
+   //console.log(createLi)
+   //createLi.innerText = userInput//.data.attributes.content 
+   //console.log(comment)
+   //commentList.appendChild(createLi) 
 
-//   const bulletinId = e.target.parentElement.dataset.id 
-//   console.log(e.target.parentElement)
+  const bulletinId = e.target.parentElement.dataset.id 
+  console.log(e.target.parentElement)
 
 
-//     const options = {
-//       method: "POST",
-//       headers: {
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({comment: {content: userInput, bulletin_id: bulletinId}})
-//     } 
+    const options = {
+      method: "POST",
+      headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({comment: {content: userInput, bulletin_id: bulletinId}})
+    } 
    
-//     fetch(`${BACKEND_URL}/comments`, options)
-//     .then(response => response.json())
-//     .then(comment => {
+    fetch(`${BACKEND_URL}/comments`, options)
+    .then(response => response.json())
+    .then(comment => {
       
-//       console.log(comment)
-//       const c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
-//       console.log(c)
-//       //c.renderComments()
-//       //Comment {id: "50", bulletin_id: undefined, content: "cghv"}
+      console.log(comment)
+      let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
+      console.log(c)
+      //c.renderComments()
+      //Comment {id: "50", bulletin_id: undefined, content: "cghv"}
 
-//     }) 
-//   }  
+    }) 
+  }  
 
 
 
