@@ -10,9 +10,9 @@ function fetchBulletin(){
     .then(parsedBulletins => {
   
       for(const bulletin of parsedBulletins) { 
-          console.log("rails obj", bulletin) 
+          //console.log("rails obj", bulletin) 
           let b = new Bulletin( bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content, bulletin.data.attributes.comment)
-          console.log("js obj", b) 
+          //console.log("js obj", b) 
           b.renderBulletins()
     }
   }) 
@@ -79,8 +79,6 @@ fetchBulletin()
 
 //   const userInput = e.target.children[0].value
 //   //console.log(userInput)  
-
-//   //
    
 //   commentList = e.target.nextElementSibling
 //   console.log(commentList) 

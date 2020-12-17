@@ -46,6 +46,17 @@ class Bulletin{
     const createCommentList = document.createElement("ul")
 
 
+    const commentList = document.createElement('ul')
+    // this.comments.forEach(comment => {
+    //     let c = new Commnet (comment.data.attributtes.content)
+    //     console.log(c)
+    // })
+    //     this.comments.forEach(comment => {
+    //         let commentObj = new Comment(comment)
+    //         console.log(commentObj)
+    //         commentObj.renderComment(commentList)
+
+
     createDiv.append(hTag, pTag, commentForm, createCommentList )   
     //createDiv.append(hTag, pTag)  
  
