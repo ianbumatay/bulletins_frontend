@@ -1,9 +1,12 @@
-// class Bulletin{
-//     constructor(id, title, content){
-//         this.id = id 
-//         this.title = title 
-//         this.content = content
-//     } 
+class Bulletin{
+    constructor(id, title, content){
+        this.id = id 
+        this.title = title 
+        this.content = content
+    }  
+
+}
+
     // renderBulletin(){
 
         // const divTag = document.querySelector("#bullets-container") 
@@ -68,10 +71,5 @@
   
 
 //} // class BUlletin   
-
- 
-  
-  
-
 
 
