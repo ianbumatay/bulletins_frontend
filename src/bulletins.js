@@ -40,26 +40,22 @@ class Bulletin{
  
     const commentForm = document.createElement("form")
     commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
-    commentForm.addEventListener("submit", submitCommentForm) 
+    commentForm.addEventListener("submit", submitComment) 
 
 
     const createCommentList = document.createElement("ul")
-
-
-    const commentList = document.createElement('ul')
-    // this.data.attcomments.forEach(comment => {
+    // this.comments.forEach(comment => {
     //      let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
     //     console.log(c)
-    // })
+    // }) 
+        
 
 
-    //     this.comments.forEach(comment => {
-    //         let commentObj = new Comment(comment)
-    //         console.log(commentObj)
-    //         commentObj.renderComment(commentList)
+       
 
-
-    createDiv.append(hTag, pTag, commentForm, createCommentList )   
+    createDiv.append(hTag, pTag, commentForm, createCommentList ) 
+    
+    
     //createDiv.append(hTag, pTag)  
  
   

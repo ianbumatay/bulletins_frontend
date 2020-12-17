@@ -72,25 +72,33 @@ fetchBulletin()
 
 
 
-function submitCommentForm(e) { 
+
+
+function submitComment(e) { 
   e.preventDefault()
 
   //console.log(e.target)
 
   const userInput = e.target.children[0].value
-  //console.log(userInput)  
+  console.log(userInput)  
    
-  //commentList = e.target.nextElementSibling
-  //console.log(commentList) 
-
-   //const createLi = document.createElement("li")
-   //console.log(createLi)
-   //createLi.innerText = userInput//.data.attributes.content 
-   //console.log(comment)
-   //commentList.appendChild(createLi) 
+  commentList = e.target.nextElementSibling
+  console.log(commentList) 
 
   const bulletinId = e.target.parentElement.dataset.id 
   console.log(e.target.parentElement)
+
+
+   const createLi = document.createElement("li")
+   console.log(createLi)
+   createLi.dataset.id = bulletinId
+   createLi.innerText = userInput//.data.attributes.content 
+
+   console.log(userInput)
+   commentList.appendChild(createLi) 
+
+  // const bulletinId = e.target.parentElement.dataset.id 
+  // console.log(e.target.parentElement)
 
 
     const options = {
@@ -103,16 +111,16 @@ function submitCommentForm(e) {
     } 
    
     fetch(`${BACKEND_URL}/comments`, options)
-    .then(response => response.json())
-    .then(comment => {
+    // .then(response => response.json())
+    // .then(comment => {
       
-      console.log(comment)
-      let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
-      console.log(c)
-      //c.renderComments()
+    //   console.log(comment)
+    //   let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
+    //   console.log(c)
+    //   //c.renderComments()
       //Comment {id: "50", bulletin_id: undefined, content: "cghv"}
 
-    }) 
+    //}) 
   }  
 
 
@@ -123,13 +131,13 @@ function submitCommentForm(e) {
 //     .then(response => response.json())
 //     .then(comments => {
   
-//     //   for(const comment of comments) { 
-//     //       console.log("rails obj", comment) 
-//     //       let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
-//     //       console.log(c)
-//     //       console.log("js obj", c) 
-//     //      //c.renderComments()
-//     // }
+//       for(const comment of comments) { 
+//           console.log("rails obj", comment) 
+//           let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
+//           console.log(c)
+//           console.log("js obj", c) 
+//          //c.renderComments()
+//     }
 //   }) 
 // }   
 
@@ -137,18 +145,4 @@ function submitCommentForm(e) {
 
 
 
-
-// function fetchComments(){
-//   fetch(`${BACKEND_URL}/comments`)
-//     .then(response => response.json())
-//     .then(comments => {
-  
-//       for(const comment of comments) { 
-//           console.log("rails obj", comment) 
-//           let c = new Comment( comment.data.attributes.content)
-//           console.log("js obj", c) 
-//           c.renderComments()
-//     }
-//   }) 
-// }   
 

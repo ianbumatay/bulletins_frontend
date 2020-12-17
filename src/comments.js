@@ -6,15 +6,7 @@ class Comment {
     }  
     
     
-    // renderComment(){  
-
-
-      
-
-      
-
-    // }
-
+    
     
     
    
