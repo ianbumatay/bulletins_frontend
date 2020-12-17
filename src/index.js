@@ -1,6 +1,39 @@
 console.log("connecting...") 
 
-const BACKEND_URL = "http://localhost:3000/";  
+const BACKEND_URL = "http://localhost:3000/";   
+
+
+  function renderBulletins(){
+
+     const divTag = document.querySelector("#bullets-container")
+     const createDiv = document.createElement("div")
+     //createDiv.dataset.id = this.id
+  
+    divTag.appendChild(createDiv) // Dynamic <div>
+  
+    const hTag = document.createElement("h2")
+    hTag.innerText = bulletin.data.attributes.title
+    const pTag = document.createElement("p")
+    pTag.innerText = bulletin.data.attributes.content 
+
+
+ 
+    const commentForm = document.createElement("form")
+    commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
+    commentForm.addEventListener("submit", Comment.submitCommentForm) 
+
+
+    const createCommentList = document.createElement("ul") 
+    //createCommentList.dataset.name = "commment-ul"
+    
+  
+
+    createDiv.append(hTag, pTag, commentForm, createCommentList )   
+    
+    
+    
+  
+  } 
 
 
 
