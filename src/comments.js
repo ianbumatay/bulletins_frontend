@@ -6,27 +6,8 @@ class Comment {
     }   
 
     
-  
-
-    renderComments() { 
     
-    const commentsContainer = document.querySelector("#comments-container")
-    commentsContainer.innerHTML += 
-    
-    `
-    <ul> 
-      <li> ${this.content}</li> 
-    </ul>
-
-    `
-
-  //  const ul = document.createElement("ul")
-  //  const li = document.createElement("li")
-  //  li.innerText = this.content
-  //  ul.appendChild(li)
-
-   }
-
+   
 } 
 
 
