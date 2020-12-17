@@ -47,7 +47,7 @@ class Bulletin{
     deleteBtn.innerText = "DELETE" 
     deleteBtn.addEventListener("click", deleteBulletin)
 
-    createDiv.appendChild(deleteBtn)
+  
 
 
     const createCommentList = document.createElement("ul")
@@ -59,7 +59,7 @@ class Bulletin{
 
  
 
-    createDiv.append(hTag, pTag, commentForm, createCommentList) 
+    createDiv.append(hTag, pTag, commentForm, createCommentList,deleteBtn) 
     
     
     //createDiv.append(hTag, pTag)  
