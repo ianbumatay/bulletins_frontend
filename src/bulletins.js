@@ -1,8 +1,9 @@
 class Bulletin{
-    constructor(id, title, content){
+    constructor(id, title, content,comments){
         this.id = id 
         this.title = title 
-        this.content = content
+        this.content = content 
+        this.comments = comments
     }  
 
 
@@ -44,7 +45,7 @@ class Bulletin{
 
     const createCommentList = document.createElement("ul")
 
-    
+
     createDiv.append(hTag, pTag, commentForm, createCommentList )   
     //createDiv.append(hTag, pTag)  
  

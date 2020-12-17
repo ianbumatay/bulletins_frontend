@@ -3,7 +3,15 @@ class Comment {
         this.id = id, 
         this.bulletin_id = bulletin_id
         this.content = content
-    }   
+    }  
+    
+    
+    // renderComment(){ 
+    //   create
+
+    //   const ul = document.querySelector("")
+
+    // }
 
     
     

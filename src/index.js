@@ -10,9 +10,9 @@ function fetchBulletin(){
     .then(parsedBulletins => {
   
       for(const bulletin of parsedBulletins) { 
-          //console.log("rails obj", bulletin) 
-          let b = new Bulletin( bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content)
-          //console.log("js obj", b) 
+          console.log("rails obj", bulletin) 
+          let b = new Bulletin( bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content, bulletin.data.attributes.comment)
+          console.log("js obj", b) 
           b.renderBulletins()
     }
   }) 
@@ -48,7 +48,7 @@ fetchBulletin()
     .then(bulletin => { 
       
            //console.log("rails obj", bulletin) 
-          let b = new Bulletin(bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content)
+          let b = new Bulletin(bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content, bulletin.data.attributes.commentw)
           //console.log("js obj", b) 
           b.renderBulletins()
       
