@@ -43,14 +43,21 @@ class Bulletin{
 
 
     const createCommentList = document.createElement("ul")
+
+    
     createDiv.append(hTag, pTag, commentForm, createCommentList )   
     //createDiv.append(hTag, pTag)  
  
   
-  } 
+  }  
+
+   
+  
+  
 
   
 
 } // class BUlletin   
+
 
 

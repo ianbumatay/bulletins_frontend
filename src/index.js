@@ -3,37 +3,6 @@ console.log("connecting...")
 const BACKEND_URL = "http://localhost:3000/";   
 
 
-  function renderBulletins(){
-
-     const divTag = document.querySelector("#bullets-container")
-     const createDiv = document.createElement("div")
-     //createDiv.dataset.id = this.id
-  
-    divTag.appendChild(createDiv) // Dynamic <div>
-  
-    const hTag = document.createElement("h2")
-    hTag.innerText = bulletin.data.attributes.title
-    const pTag = document.createElement("p")
-    pTag.innerText = bulletin.data.attributes.content 
-
-
- 
-    const commentForm = document.createElement("form")
-    commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
-    commentForm.addEventListener("submit", Comment.submitCommentForm) 
-
-
-    const createCommentList = document.createElement("ul") 
-    //createCommentList.dataset.name = "commment-ul"
-    
-  
-
-    createDiv.append(hTag, pTag, commentForm, createCommentList )   
-  
-  } 
-
-
-
 
 function fetchBulletin(){
   fetch(`${BACKEND_URL}/bulletins`)
@@ -52,42 +21,40 @@ function fetchBulletin(){
 fetchBulletin()  
 
 
-//  const bulletinForm = document.querySelector("#bulletin-form") 
-//  //console.log(bulletinForm) 
-//  bulletinForm.addEventListener("submit", submitForm) 
-//      //console.log("clicked")
+ const bulletinForm = document.querySelector("#bulletin-form") 
+ //console.log(bulletinForm) 
+ bulletinForm.addEventListener("submit", submitForm) 
+     //console.log("clicked")
 
 
-//  function submitForm(e){
-//    e.preventDefault() 
+ function submitForm(e){
+   e.preventDefault() 
 
-//    const title = document.querySelector("#title").value
-//    const content = document.querySelector("#content").value 
-//    //console.log(title, content)  
+   const title = document.querySelector("#title").value
+   const content = document.querySelector("#content").value 
+   //console.log(title, content)  
 
-//    const options = {
-//      method: "POST",
-//      headers: {
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/json'
-//      },
-//      body: JSON.stringify({bulletin: {title: title, content: content}})
-//    }
+   const options = {
+     method: "POST",
+     headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+     },
+     body: JSON.stringify({bulletin: {title: title, content: content}})
+   }
 
-   
-
-//   fetch(`${BACKEND_URL}/bulletins`, options)
-//     .then(response => response.json())
-//     .then(bulletin => { 
+  fetch(`${BACKEND_URL}/bulletins`, options)
+    .then(response => response.json())
+    .then(bulletin => { 
       
-//            //console.log("rails obj", bulletin) 
-//           let b = new Bulletin(bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content)
-//           //console.log("js obj", b) 
-//           b.renderBulletins()
+           //console.log("rails obj", bulletin) 
+          let b = new Bulletin(bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content)
+          //console.log("js obj", b) 
+          b.renderBulletins()
       
-//     }) 
+    }) 
    
-//  } 
+ } 
 
 
 // function deleteUser(){
