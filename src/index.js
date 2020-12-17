@@ -95,10 +95,12 @@ function submitComment(e) {
    createLi.innerText = userInput//.data.attributes.content 
 
    console.log(userInput)
-   commentList.appendChild(createLi) 
+   commentList.appendChild(createLi)  
 
-  // const bulletinId = e.target.parentElement.dataset.id 
-  // console.log(e.target.parentElement)
+   
+
+  
+
 
 
     const options = {
@@ -146,3 +148,7 @@ function submitComment(e) {
 
 
 
+function deleteBulletin(e){
+  console.log(e.target)
+
+}

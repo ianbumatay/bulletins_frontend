@@ -43,6 +43,13 @@ class Bulletin{
     commentForm.addEventListener("submit", submitComment) 
 
 
+    const deleteBtn = document.createElement("button")
+    deleteBtn.innerText = "DELETE" 
+    deleteBtn.addEventListener("click", deleteBulletin)
+
+    createDiv.appendChild(deleteBtn)
+
+
     const createCommentList = document.createElement("ul")
     // this.comments.forEach(comment => {
     //      let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
@@ -50,10 +57,9 @@ class Bulletin{
     // }) 
         
 
+ 
 
-       
-
-    createDiv.append(hTag, pTag, commentForm, createCommentList ) 
+    createDiv.append(hTag, pTag, commentForm, createCommentList) 
     
     
     //createDiv.append(hTag, pTag)  
