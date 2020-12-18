@@ -51,11 +51,13 @@ class Bulletin{
 
 
     const createCommentList = document.createElement("ul")
-    // this.comments.forEach(comment => {
-    //      let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
-    //     console.log(c)
-    // }) 
-        
+
+    this.comments.forEach(comment => {
+        const li = document.createElement("li")
+        li.innerText = comment.content 
+        createCommentList.appendChild(li)
+
+    })
 
  
 
@@ -63,16 +65,25 @@ class Bulletin{
     
     
     //createDiv.append(hTag, pTag)  
- 
   
-  }  
+   }   
+   
+   
+//    const commentList = document.createElement('ul')
+//    this.comments.forEach(comment => {
+//        let commentObj = new Comment(comment)
+//        console.log(commentObj)
+//        commentObj.renderComment(commentList)
+//    })
+
+ 
+
 
    
   
   
 
   
-
 } // class BUlletin   
 
 
