@@ -57,10 +57,17 @@ class Bulletin{
 
     const createCommentList = document.createElement("ul")
     this.comments.forEach(comment => {
-        const li = document.createElement("li")
-        li.innerText = this.content 
-        createCommentList.appendChild(li)
+        let c = new Comment(comment)
+        c.renderComment(commentList)
+        
     })
+
+    // const commentList = document.createElement('ul')
+    // this.comments.forEach(comment => {
+    //     let commentObj = new Comment(comment)
+    //     console.log(commentObj)
+    //     commentObj.renderComment(commentList)
+    // })
 
     createDiv.append(hTag, pTag, commentForm, createCommentList,deleteBtn)
   }   
