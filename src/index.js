@@ -13,10 +13,11 @@ function fetchBulletin(){
           //console.log("rails obj", bulletin) 
           //debugger; 
           const commentsArray = [] 
-          bulletin.data.attributes.comments.forEach(comment =>{ 
+          bulletin.data.attributes.comments.forEach(comment => { 
             let newComment = new Comment(comment.id, comment.bulletin_id, comment.content)
             commentsArray.push(newComment)
           })
+
           let b = new Bulletin( bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content, commentsArray)
           //console.log("js obj", b) 
           b.renderBulletins()
@@ -63,17 +64,17 @@ fetchBulletin()
  } 
 
 
-// function deleteUser(){
+function deleteUser(){
 
-//   //debugger;
+  //debugger;
 
-//     let bulletinId = parseInt(event.target.dataset.id) 
+    let bulletinId = parseInt(event.target.dataset.id) 
 
-//     fetch(`${BACKEND_URL}/bulletins/${bulletinId}`, {
-//       method: "DELETE" 
-//     }) 
-//     this.location.reload()
-//} 
+    fetch(`${BACKEND_URL}/bulletins/${bulletinId}`, {
+      method: "DELETE" 
+    }) 
+    this.location.reload()
+} 
 
 
 
@@ -103,12 +104,6 @@ function submitComment(e) {
    console.log(userInput)
    commentList.appendChild(createLi)  
 
-   
-
-  
-
-
-
     const options = {
       method: "POST",
       headers: {
@@ -119,37 +114,36 @@ function submitComment(e) {
     } 
    
     fetch(`${BACKEND_URL}/comments`, options)
-    // .then(response => response.json())
-    // .then(comment => {
+    .then(response => response.json())
+    .then(comment => {
       
-    //   console.log(comment)
-    //   let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
-    //   console.log(c)
-    //   //c.renderComments()
+      console.log(comment)
+      let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
+      console.log(c)
+      //c.renderComments()
       //Comment {id: "50", bulletin_id: undefined, content: "cghv"}
 
-    //}) 
+    })  
+    e.target.resest()
   }  
 
 
-
-
-//   function fetchComments(){
-//   fetch(`${BACKEND_URL}/comments`)
-//     .then(response => response.json())
-//     .then(comments => {
+  function fetchComments(){
+  fetch(`${BACKEND_URL}/comments`)
+  //   .then(response => response.json())
+  //   .then(comments => {
   
-//       for(const comment of comments) { 
-//           console.log("rails obj", comment) 
-//           let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
-//           console.log(c)
-//           console.log("js obj", c) 
-//          //c.renderComments()
-//     }
-//   }) 
-// }   
+  //     for(const comment of comments) { 
+  //         console.log("rails obj", comment) 
+  //         let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
+  //         console.log(c)
+  //         console.log("js obj", c) 
+  //        //c.renderComments()
+  //   }
+  // }) 
+}   
 
-// fetchComments()
+fetchComments()
 
 
 

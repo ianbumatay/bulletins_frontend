@@ -1,26 +1,18 @@
+
+
+
 class Bulletin{
+
     constructor(id, title, content,comments){
         this.id = id 
         this.title = title 
         this.content = content 
-        this.comments = comments
-    }  
+        this.comments = comments  
+        //console.log(this)
+     }
+  
+  
 
-
-
-    // renderBulletin(){
-
-        // const divTag = document.querySelector("#bullets-container") 
-  //       divTag.innerHTML += 
-  //       `
-          
-  //         <h2> ${this.title} </h2>
-  //         <p> ${this.content} </p>
-  //         <button class="delete-btn" data-id = ${this.id} onclick ="deleteUser()"> X </button><br> 
-
-
-  //       `  
-        
   
 
   renderBulletins(){
@@ -47,41 +39,20 @@ class Bulletin{
     deleteBtn.innerText = "DELETE" 
     deleteBtn.addEventListener("click", deleteBulletin)
 
-  
-
-
     const createCommentList = document.createElement("ul")
 
     this.comments.forEach(comment => {
         const li = document.createElement("li")
-        li.innerText = comment.content 
+        li.innerText = this.content 
         createCommentList.appendChild(li)
-
     })
 
- 
-
-    createDiv.append(hTag, pTag, commentForm, createCommentList,deleteBtn) 
-    
-    
-    //createDiv.append(hTag, pTag)  
+    createDiv.append(hTag, pTag, commentForm, createCommentList,deleteBtn)
   
-   }   
-   
-   
-//    const commentList = document.createElement('ul')
-//    this.comments.forEach(comment => {
-//        let commentObj = new Comment(comment)
-//        console.log(commentObj)
-//        commentObj.renderComment(commentList)
-//    })
-
- 
+  }   
 
 
    
-  
-  
 
   
 } // class BUlletin   
