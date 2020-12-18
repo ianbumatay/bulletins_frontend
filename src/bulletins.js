@@ -9,7 +9,11 @@ class Bulletin{
         this.content = content 
         this.comments = comments  
         console.log(this)
-     } 
+     }  
+
+     renderBUlletins(){
+
+     }
 
 
 
@@ -30,7 +34,7 @@ class Bulletin{
      //})
 
       let b = new Bulletin( bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content, bulletin.data.attributes.comments)
-      //console.log("js obj", b) 
+       console.log("js obj", b) 
        this.renderBulletins()
 
       }
@@ -41,7 +45,7 @@ class Bulletin{
 
   
 
-  renderBulletins(){
+  renderBulletin(){
 
      const divTag = document.querySelector("#bullets-container")
      const createDiv = document.createElement("div")

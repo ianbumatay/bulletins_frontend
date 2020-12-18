@@ -57,7 +57,7 @@ const BACKEND_URL = "http://localhost:3000/";
            //console.log("rails obj", bulletin) 
           let b = new Bulletin(bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content, bulletin.data.attributes.commentw)
           //console.log("js obj", b) 
-          b.renderBulletins()
+          b.renderBulletin()
       
     }) 
    
