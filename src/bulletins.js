@@ -3,23 +3,20 @@ class Bulletin{
 
     static allBulletins = []
 
-    constructor(id, title, content, comments){
-        this.id = id 
-        this.title = title 
-        this.content = content 
-        this.comments = comments 
+    constructor(bulletin){
+        this.id = bulletin.id
+        this.title = bulletin.attributes.title 
+        this.content = bulletin.attributes.content 
+        this.comments = bulletin.attributes.comments 
         Bulletin.allBulletins.push(this) 
-        //console.log(this)
+        //console.log(bulletin)
      }  
 
-     static renderBUlletins(){
+     static renderBulletins(){
          for(let bulletin of this.allBulletins){
-             bulletin.renderBUlletin()
+             bulletin.renderBulletin()
          }
-
      }
-
-
 
 
      static fetchBulletin(){
@@ -28,25 +25,11 @@ class Bulletin{
         .then(bulletins => {
         
      for(const bulletin of bulletins) { 
-        //console.log("rails obj", bulletin) 
-        //debugger; 
-    //    const commentsArray = [] 
-    //    bulletin.data.attributes.comments.forEach(comment => { 
-    //    let newComment = new Comment(comment.id, comment.bulletin_id, comment.content)
-    //    commentsArray.push(newComment)
-
-     //})
-
-      let b = new Bulletin( bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content, bulletin.data.attributes.comments)
-       console.log("js obj", b) 
+      let b = new Bulletin( bulletin.data) 
       } 
       this.renderBulletins()
     })
    }   
-  
-  
-
-  
 
   renderBulletin(){
 
@@ -54,12 +37,12 @@ class Bulletin{
      const createDiv = document.createElement("div")
      createDiv.dataset.id = this.id
   
-    divTag.appendChild(createDiv) // Dynamic <div>
+    divTag.appendChild(createDiv) 
   
     const hTag = document.createElement("h2")
-    hTag.innerText = this.title//bulletin.data.attributes.title
+    hTag.innerText = this.title
     const pTag = document.createElement("p")
-    pTag.innerText = this.content//bulletin.data.attributes.content 
+    pTag.innerText = this.content
 
 
  
@@ -81,8 +64,33 @@ class Bulletin{
     })
 
     createDiv.append(hTag, pTag, commentForm, createCommentList,deleteBtn)
-  
   }   
+
+   static submitBulletin(e){
+    e.preventDefault() 
+ 
+    const title = document.querySelector("#title").value
+    const content = document.querySelector("#content").value 
+    //console.log(title, content)  
+ 
+    const options = {
+      method: "POST",
+      headers: {
+       'Accept': 'application/json',
+       'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({bulletin: {title: title, content: content}})
+    }
+ 
+   fetch(`${BACKEND_URL}/bulletins`, options)
+     .then(response => response.json())
+     .then(bulletin => { 
+       
+           let b = new Bulletin(bulletin.data)
+           b.renderBulletin()
+     }) 
+   } 
+ 
 
 
    

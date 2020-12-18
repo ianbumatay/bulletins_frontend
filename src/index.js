@@ -30,38 +30,38 @@ const BACKEND_URL = "http://localhost:3000/";
 
  const bulletinForm = document.querySelector("#bulletin-form") 
  //console.log(bulletinForm) 
- bulletinForm.addEventListener("submit", submitForm) 
+ bulletinForm.addEventListener("submit", Bulletin.submitBulletin) 
      //console.log("clicked")
 
 
- function submitForm(e){
-   e.preventDefault() 
+//  function submitForm(e){
+//    e.preventDefault() 
 
-   const title = document.querySelector("#title").value
-   const content = document.querySelector("#content").value 
-   //console.log(title, content)  
+//    const title = document.querySelector("#title").value
+//    const content = document.querySelector("#content").value 
+//    //console.log(title, content)  
 
-   const options = {
-     method: "POST",
-     headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-     },
-     body: JSON.stringify({bulletin: {title: title, content: content}})
-   }
+//    const options = {
+//      method: "POST",
+//      headers: {
+//       'Accept': 'application/json',
+//       'Content-Type': 'application/json'
+//      },
+//      body: JSON.stringify({bulletin: {title: title, content: content}})
+//    }
 
-  fetch(`${BACKEND_URL}/bulletins`, options)
-    .then(response => response.json())
-    .then(bulletin => { 
+//   fetch(`${BACKEND_URL}/bulletins`, options)
+//     .then(response => response.json())
+//     .then(bulletin => { 
       
-           //console.log("rails obj", bulletin) 
-          let b = new Bulletin(bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content, bulletin.data.attributes.commentw)
-          //console.log("js obj", b) 
-          b.renderBulletin()
+//            //console.log("rails obj", bulletin) 
+//           let b = new Bulletin(bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content, bulletin.data.attributes.commentw)
+//           //console.log("js obj", b) 
+//           b.renderBulletin()
       
-    }) 
+//     }) 
    
- } 
+//  } 
 
 
 function deleteUser(){
