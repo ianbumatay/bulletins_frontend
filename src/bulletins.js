@@ -9,7 +9,7 @@ class Bulletin{
         this.content = bulletin.attributes.content 
         this.comments = bulletin.attributes.comments 
         Bulletin.allBulletins.push(this) 
-        //console.log(bulletin)
+        
      }  
 
      static renderBulletins(){
@@ -56,42 +56,23 @@ class Bulletin{
     deleteBtn.innerText = "DELETE" 
     deleteBtn.addEventListener("click", this.deleteBulletin)
 
-    // const commentList = document.createElement("ul")
-    // this.comments.forEach(comment => {
-    //     let c = new Comment(comment)
-    //     c.renderComment(commentList)
-        
-    // })
-
-    // const commentList = document.createElement('ul')
-    // this.comments.forEach(comment => {
-    //     let commentObj = new Comment(comment)
-    //     console.log(commentObj)
-    //     commentObj.renderComment(commentList)
-    // }) 
-
     const createCommentList = document.createElement('ul') 
     this.comments.forEach(comment => {
       const li = document.createElement("li")
-      // commentObj = new Comment(comment)
       
       li.innerText = comment.content
       createCommentList.appendChild(li)
-
-     })
+    })
 
     createDiv.append(hTag, pTag, commentForm, createCommentList,deleteBtn)
-
-  
 }
 
 
-   static submitBulletin(e){
+  static submitBulletin(e){
     e.preventDefault() 
  
     const title = document.querySelector("#title").value
     const content = document.querySelector("#content").value 
-    //console.log(title, content)  
  
     const options = {
       method: "POST",
@@ -108,26 +89,19 @@ class Bulletin{
        
            let b = new Bulletin(bulletin.data)
            b.renderBulletin()
-     }) 
-   }  
+    }) 
+  }  
 
 
-    deleteBulletin(e){
-    //console.log(e.target.parentElement) 
-    let bulletinId = this.parentElement.dataset.id
-    fetch(`${BACKEND_URL}/bulletins/${bulletinId}`, {
-        method: "DELETE" 
-      
+  deleteBulletin(e){
+  let bulletinId = this.parentElement.dataset.id
+  fetch(`${BACKEND_URL}/bulletins/${bulletinId}`, {
+      method: "DELETE" 
     })
      this.parentElement.remove()
   } 
- 
-
-
-   
-
   
-} // class BUlletin   
+} //  
 
 
 

@@ -31,9 +31,9 @@ const options = {
     .then(response => response.json())
     .then(comment => {
       
-    console.log("rails" , comment)
+    //console.log("rails" , comment)
     let c = new Comment(comment.data)
-    console.log(c)
+    //console.log(c)
        
     })  
     e.target.reset()
