@@ -48,7 +48,7 @@ class Bulletin{
  
     const commentForm = document.createElement("form")
     commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
-    commentForm.addEventListener("submit", submitComment) 
+    commentForm.addEventListener("submit", Comment.createComment)
 
 
     const deleteBtn = document.createElement("button")
@@ -56,7 +56,6 @@ class Bulletin{
     deleteBtn.addEventListener("click", this.deleteBulletin)
 
     const createCommentList = document.createElement("ul")
-
     this.comments.forEach(comment => {
         const li = document.createElement("li")
         li.innerText = this.content 

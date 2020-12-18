@@ -64,72 +64,72 @@ const BACKEND_URL = "http://localhost:3000/";
 //  } 
 
 
-function deleteUser(){
+// function deleteUser(){
 
-  //debugger;
+//   //debugger;
 
-    let bulletinId = parseInt(event.target.dataset.id) 
+//     let bulletinId = parseInt(event.target.dataset.id) 
 
-    fetch(`${BACKEND_URL}/bulletins/${bulletinId}`, {
-      method: "DELETE" 
-    }) 
-    this.location.reload()
-} 
-
-
+//     fetch(`${BACKEND_URL}/bulletins/${bulletinId}`, {
+//       method: "DELETE" 
+//     }) 
+//     this.location.reload()
+// } 
 
 
 
 
-function submitComment(e) { 
-  e.preventDefault()
 
-  //console.log(e.target)
 
-  const userInput = e.target.children[0].value
-  console.log(userInput)  
+// function submitComment(e) { 
+//   e.preventDefault()
+
+//   console.log(e.target)
+
+//   const userInput = e.target.children[0].value
+//   console.log(userInput)  
    
-  commentList = e.target.nextElementSibling
-  console.log(commentList) 
+//   commentList = e.target.nextElementSibling
+//   console.log(commentList) 
 
-  const bulletinId = e.target.parentElement.dataset.id 
-  console.log(e.target.parentElement)
+//   const bulletinId = e.target.parentElement.dataset.id 
+//   console.log(e.target.parentElement)
 
 
-   const createLi = document.createElement("li")
-   console.log(createLi)
-   createLi.dataset.id = bulletinId
-   createLi.innerText = userInput//.data.attributes.content 
+//    const createLi = document.createElement("li")
+//    console.log(createLi)
+//    createLi.dataset.id = bulletinId
+//    createLi.innerText = userInput//.data.attributes.content 
 
-   console.log(userInput)
-   commentList.appendChild(createLi)  
+//    console.log(userInput)
+//    commentList.appendChild(createLi)  
 
-    const options = {
-      method: "POST",
-      headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({comment: {content: userInput, bulletin_id: bulletinId}})
-    } 
+//     const options = {
+//       method: "POST",
+//       headers: {
+//       'Accept': 'application/json',
+//       'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({comment: {content: userInput, bulletin_id: bulletinId}})
+//     } 
    
-    fetch(`${BACKEND_URL}/comments`, options)
-    .then(response => response.json())
-    .then(comment => {
+//     fetch(`${BACKEND_URL}/comments`, options)
+//      .then(response => response.json())
+//      .then(comment => {
       
-      console.log(comment)
-      let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
-      console.log(c)
+//        console.log(comment)
+//        let c = new Comment(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
+//     //   console.log(c)
       //c.renderComments()
-      //Comment {id: "50", bulletin_id: undefined, content: "cghv"}
+      
 
-    })  
-    e.target.resest()
-  }  
+    //})  
+    //e.target.resest()
+  //}  
 
 
-  function fetchComments(){
-  fetch(`${BACKEND_URL}/comments`)
+  // function fetchComments(){
+  // fetch(`${BACKEND_URL}/comments`)
   //   .then(response => response.json())
   //   .then(comments => {
   
@@ -141,9 +141,9 @@ function submitComment(e) {
   //        //c.renderComments()
   //   }
   // }) 
-}   
+//}   
 
-fetchComments()
+// fetchComments()
 
 
 
