@@ -67,7 +67,19 @@ class Comment {
           
         })  
       
-      }  
+      }   
+
+    renderComment(commentList){ 
+     
+       const createLi = document.createElement("li")
+       //console.log(createLi)
+       createLi.dataset.id = this.bulletinId
+       createLi.innerText = this.userInput//.data.attributes.content 
+    
+       //console.log(userInput)
+       commentList.appendChild(createLi)  
+
+    }
  
     
     
