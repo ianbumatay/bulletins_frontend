@@ -45,7 +45,7 @@ class Comment {
     
       static submitComment(e) { 
         e.preventDefault()
-        
+
       console.log(e.target)
     
       const userInput = e.target.children[0].value
@@ -57,12 +57,12 @@ class Comment {
       const bulletinId = e.target.parentElement.dataset.id 
       console.log(e.target.parentElement)
     
-    
+    console.log(this)
        const createLi = document.createElement("li")
        //console.log(createLi)
-       createLi.dataset.id = this.bulletinId
-       createLi.innerText = this.userInput//.data.attributes.content 
-    
+       createLi.dataset.id = bulletinId
+       createLi.innerText = userInput//.data.attributes.content 
+       console.log(createLi)
        //console.log(userInput)
        commentList.appendChild(createLi)  
     
