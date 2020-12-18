@@ -31,6 +31,7 @@ class Bulletin{
     })
    }   
 
+
   renderBulletin(){
 
      const divTag = document.querySelector("#bullets-container")
@@ -48,29 +49,40 @@ class Bulletin{
  
     const commentForm = document.createElement("form")
     commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
-    commentForm.addEventListener("submit", Comment.createComment)
+    commentForm.addEventListener("submit", Comment.submitComment)
 
 
     const deleteBtn = document.createElement("button")
     deleteBtn.innerText = "DELETE" 
     deleteBtn.addEventListener("click", this.deleteBulletin)
 
-    const createCommentList = document.createElement("ul")
-    this.comments.forEach(comment => {
-        let c = new Comment(comment)
-        c.renderComment(commentList)
+    // const commentList = document.createElement("ul")
+    // this.comments.forEach(comment => {
+    //     let c = new Comment(comment)
+    //     c.renderComment(commentList)
         
-    })
+    // })
 
     // const commentList = document.createElement('ul')
     // this.comments.forEach(comment => {
     //     let commentObj = new Comment(comment)
     //     console.log(commentObj)
     //     commentObj.renderComment(commentList)
-    // })
+    // }) 
+
+    const createCommentList = document.createElement('ul') 
+    this.comments.forEach(comment => {
+      const li = document.createElement("li")
+      li.innerText = comment.content 
+      createCommentList.appendChild(li)
+
+     })
 
     createDiv.append(hTag, pTag, commentForm, createCommentList,deleteBtn)
-  }   
+
+  
+}
+
 
    static submitBulletin(e){
     e.preventDefault() 
@@ -96,6 +108,7 @@ class Bulletin{
            b.renderBulletin()
      }) 
    }  
+
 
     deleteBulletin(e){
     //console.log(e.target.parentElement) 

@@ -1,51 +1,70 @@
 class Comment {
     constructor(comment){
         this.id = comment.id 
-        this.bulletin_id = comment.bulletin_id
-        this.content = comment.content
+        this.bulletin_id = comment.attributes.bulletin_id
+        this.content = comment.attributes.content
     }   
 
-    static createComment(e){
-      e.preventDefault()
+    // static createComment(e){
+    //   e.preventDefault()
+    //   console.log(e.target)
+    
+    //   const userInput = e.target.children[0].value
+    //   const commentList = e.target.nextElementSibling//e.target.nextElementSibling
+    //   const bulletinId = e.target.parentElement.dataset.id 
+    //   //console.log(e.target.parentElement) 
+
+    //   Comment.submitComment(userInput, commentList, bulletinId) 
+
+    //   e.target.reset()
+
+    // }  
+
+  //   renderComment(commentList){ 
+     
+  //     const createLi = document.createElement("li")
+  //     //console.log(createLi)
+  //     createLi.dataset.id = this.bulletinId
+  //     createLi.innerText = this.userInput//.data.attributes.content 
+   
+  //     //console.log(userInput)
+  //     commentList.appendChild(createLi)  
+
+  //  }
+
+
+
+
+
+
+
+
+
+
+    // static submitComment(comment, commentList, bulletinId) { 
+    
+      static submitComment(e) { 
+        e.preventDefault()
+        
       console.log(e.target)
     
       const userInput = e.target.children[0].value
       console.log(userInput)  
        
-       commentList = e.target.nextElementSibling//e.target.nextElementSibling
-       //console.log(commentList) 
+       const commentList = e.target.nextElementSibling//e.target.nextElementSibling
+       console.log(commentList) 
     
       const bulletinId = e.target.parentElement.dataset.id 
-      //console.log(e.target.parentElement) 
-
-      Comment.submitComment(userInput, commentList, bulletinId) 
-
-      e.target.reset()
-
-    }
-
-    static submitComment(comment, commentList, bulletinId) { 
+      console.log(e.target.parentElement)
     
     
-      // console.log(e.target)
+       const createLi = document.createElement("li")
+       //console.log(createLi)
+       createLi.dataset.id = this.bulletinId
+       createLi.innerText = this.userInput//.data.attributes.content 
     
-      // const userInput = e.target.children[0].value
-      // console.log(userInput)  
-       
-      //  commentList = e.target.nextElementSibling//e.target.nextElementSibling
-      //  console.log(commentList) 
-    
-      // const bulletinId = e.target.parentElement.dataset.id 
-      // console.log(e.target.parentElement)
-    
-    
-      //  const createLi = document.createElement("li")
-      //  //console.log(createLi)
-      //  createLi.dataset.id = this.bulletinId
-      //  createLi.innerText = this.userInput//.data.attributes.content 
-    
-      //  //console.log(userInput)
-      //  commentList.appendChild(createLi)  
+       //console.log(userInput)
+       commentList.appendChild(createLi)  
     
         const options = {
           method: "POST",
@@ -60,27 +79,15 @@ class Comment {
         .then(response => response.json())
         .then(comment => {
           
-          //console.log(comment)
-          let c = new Comment(comment)//(comment.data.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
-          //console.log(c)
-          c.renderComments(commentList)
+          console.log("rails" , comment)
+          let c = new Comment(comment.data)//z0.id, comment.data.attributes.bulletinId, comment.data.attributes.content ) 
+          console.log(c)
+          //c.renderComments(commentList)
           
         })  
-      
+        e.target.reset()
       }   
 
-    renderComment(commentList){ 
-     
-       const createLi = document.createElement("li")
-       //console.log(createLi)
-       createLi.dataset.id = this.bulletinId
-       createLi.innerText = this.userInput//.data.attributes.content 
-    
-       //console.log(userInput)
-       commentList.appendChild(createLi)  
-
-    }
- 
     
     
     
