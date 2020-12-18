@@ -3,12 +3,12 @@
 
 class Bulletin{
 
-    constructor(id, title, content,comments){
+    constructor(id, title, content, comments){
         this.id = id 
         this.title = title 
         this.content = content 
         this.comments = comments  
-        //console.log(this)
+        console.log(this)
      } 
 
 
@@ -29,7 +29,7 @@ class Bulletin{
 
      //})
 
-      let b = new Bulletin( bulletin.data)//bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content, commentsArray)
+      let b = new Bulletin( bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content, bulletin.data.attributes.comments)
       //console.log("js obj", b) 
        this.renderBulletins()
 
