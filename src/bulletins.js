@@ -1,17 +1,21 @@
 
+class Bulletin{ 
 
-
-class Bulletin{
+    static allBulletins = []
 
     constructor(id, title, content, comments){
         this.id = id 
         this.title = title 
         this.content = content 
-        this.comments = comments  
-        console.log(this)
+        this.comments = comments 
+        Bulletin.allBulletins.push(this) 
+        //console.log(this)
      }  
 
-     renderBUlletins(){
+     static renderBUlletins(){
+         for(let bulletin of this.allBulletins){
+             bulletin.renderBUlletin()
+         }
 
      }
 
@@ -35,9 +39,8 @@ class Bulletin{
 
       let b = new Bulletin( bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content, bulletin.data.attributes.comments)
        console.log("js obj", b) 
-       this.renderBulletins()
-
-      }
+      } 
+      this.renderBulletins()
     })
    }   
   
