@@ -4,28 +4,28 @@ const BACKEND_URL = "http://localhost:3000/";
 
 
 
-function fetchBulletin(){
-  fetch(`${BACKEND_URL}/bulletins`)
-    .then(response => response.json())
-    .then(parsedBulletins => {
+// function fetchBulletin(){
+//   fetch(`${BACKEND_URL}/bulletins`)
+//     .then(response => response.json())
+//     .then(parsedBulletins => {
   
-      for(const bulletin of parsedBulletins) { 
-          //console.log("rails obj", bulletin) 
-          //debugger; 
-          const commentsArray = [] 
-          bulletin.data.attributes.comments.forEach(comment => { 
-            let newComment = new Comment(comment.id, comment.bulletin_id, comment.content)
-            commentsArray.push(newComment)
-          })
+//       for(const bulletin of parsedBulletins) { 
+//           //console.log("rails obj", bulletin) 
+//           //debugger; 
+//           const commentsArray = [] 
+//           bulletin.data.attributes.comments.forEach(comment => { 
+//             let newComment = new Comment(comment.id, comment.bulletin_id, comment.content)
+//             commentsArray.push(newComment)
+//           })
 
-          let b = new Bulletin( bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content, commentsArray)
-          //console.log("js obj", b) 
-          b.renderBulletins()
-    }
-  }) 
-}   
+//           let b = new Bulletin( bulletin.data.id, bulletin.data.attributes.title, bulletin.data.attributes.content, commentsArray)
+//           //console.log("js obj", b) 
+//           b.renderBulletins()
+//     }
+//   }) 
+// }   
 
-fetchBulletin()  
+//fetchBulletin()  
 
 
  const bulletinForm = document.querySelector("#bulletin-form") 
@@ -156,4 +156,6 @@ function deleteBulletin(e){
     
   })
   e.target.parentElement.remove()
-}
+} 
+
+Bulletin.fetchBulletin()  
