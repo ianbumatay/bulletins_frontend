@@ -53,7 +53,7 @@ class Bulletin{
 
     const deleteBtn = document.createElement("button")
     deleteBtn.innerText = "DELETE" 
-    deleteBtn.addEventListener("click", deleteBulletin)
+    deleteBtn.addEventListener("click", this.deleteBulletin)
 
     const createCommentList = document.createElement("ul")
 
@@ -89,7 +89,17 @@ class Bulletin{
            let b = new Bulletin(bulletin.data)
            b.renderBulletin()
      }) 
-   } 
+   }  
+
+    deleteBulletin(e){
+    //console.log(e.target.parentElement) 
+    let bulletinId = this.parentElement.dataset.id
+    fetch(`${BACKEND_URL}/bulletins/${bulletinId}`, {
+        method: "DELETE" 
+      
+    })
+     this.parentElement.remove()
+  } 
  
 
 

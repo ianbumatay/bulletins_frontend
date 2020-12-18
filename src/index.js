@@ -148,14 +148,14 @@ fetchComments()
 
 
 
-function deleteBulletin(e){
-  //console.log(e.target.parentElement) 
-  let bulletinId = e.target.parentElement.dataset.id
-  fetch(`${BACKEND_URL}/bulletins/${bulletinId}`, {
-      method: "DELETE" 
+// function deleteBulletin(e){
+//   //console.log(e.target.parentElement) 
+//   let bulletinId = e.target.parentElement.dataset.id
+//   fetch(`${BACKEND_URL}/bulletins/${bulletinId}`, {
+//       method: "DELETE" 
     
-  })
-  e.target.parentElement.remove()
-} 
+//   })
+//   e.target.parentElement.remove()
+// } 
 
 Bulletin.fetchBulletin()  
