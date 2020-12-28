@@ -16,10 +16,11 @@ const createLi = document.createElement("li")
 createLi.dataset.id = bulletinId
 createLi.innerText = userInput 
 
-const deleteCommentBtn = document.createElement("button") 
+// const deleteCommentBtn = document.createElement("button") 
+// deleteCommentBtn.innerText = "DELETE"  
+// deleteCommentBtn.addEventListener("click", this.deleteComment) 
 
-deleteCommentBtn.innerText = "DELETE" 
-createLi.appendChild(deleteCommentBtn)
+createLi.innerHTML += ` <button data-id= ${this.id} onclick="deleteComment()"> X </button>`
 
 commentList.appendChild(createLi)  
 
@@ -44,7 +45,12 @@ const options = {
     e.target.reset()
   }    
 
-  static 
+
+  deleteComment(e){  
+    console.log(e.target)
+
+  }
+
 
     
 } //
