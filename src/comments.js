@@ -14,8 +14,13 @@ const bulletinId = e.target.parentElement.dataset.id
 
 const createLi = document.createElement("li")
 createLi.dataset.id = bulletinId
-createLi.innerText = userInput
-console.log(createLi)
+createLi.innerText = userInput 
+
+const deleteComment = document.createElement("button") 
+console.log(deleteComment)
+deleteComment.innerText = "DELETE" 
+createLi.appendChild(deleteComment)
+//console.log(createLi)
 commentList.appendChild(createLi)  
 
 const options = {
