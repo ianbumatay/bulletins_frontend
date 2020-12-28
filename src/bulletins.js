@@ -52,7 +52,8 @@ class Bulletin{
     commentForm.addEventListener("submit", Comment.submitComment)
 
 
-    const deleteBtn = document.createElement("button")
+    const deleteBtn = document.createElement("button") 
+ 
     deleteBtn.innerText = "DELETE" 
     deleteBtn.addEventListener("click", this.deleteBulletin)
 
