@@ -60,7 +60,6 @@ class Bulletin{
     const createCommentList = document.createElement('ul') 
     this.comments.forEach(comment => {
       const li = document.createElement("li")
-      
       li.innerText = comment.content
       createCommentList.appendChild(li)
     })

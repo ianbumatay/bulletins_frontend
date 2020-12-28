@@ -9,19 +9,17 @@ static submitComment(e) {
   e.preventDefault()
 
 const userInput = e.target.children[0].value
-const commentList = e.target.nextElementSibling
+const commentList = e.target.nextElementSibling //ul
+
 const bulletinId = e.target.parentElement.dataset.id 
 
 const createLi = document.createElement("li")
 createLi.dataset.id = bulletinId
-createLi.innerText = userInput 
+createLi.innerText = userInput  
 
-// const deleteCommentBtn = document.createElement("button") 
-// deleteCommentBtn.innerText = "X"   
-// //console.log(e.target)
-// deleteCommentBtn.addEventListener("click", this.deleteComment) 
-
-//createLi.innerHTML += `<button data-id= ${this.id} onclick="deleteComment()"> X </button>`
+const deleteCommentBtn = document.createElement("button") 
+deleteCommentBtn.innetText = "DELETE"
+createLi.appendChild(deleteCommentBtn)
 
 commentList.appendChild(createLi)  
 
@@ -44,23 +42,14 @@ const options = {
        
     })  
     e.target.reset()
-  }    
+  }     
 
-
-  deleteComment(e){ 
-    //debugger;  
-    const deleteCommentBtn = document.createElement("button") 
-    deleteCommentBtn.innerText = "X"   
-     //console.log(e.target)
-    deleteCommentBtn.addEventListener("click") 
-
-    //console.log(e.target) 
-
-    //createLi.innerHTML += `<button data-id= ${this.id} onclick="deleteComment()"> X </button>`
-
+  deleteComment(){
 
   }
 
+
+ 
 
     
 } //
