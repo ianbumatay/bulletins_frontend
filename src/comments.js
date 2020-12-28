@@ -16,11 +16,11 @@ const createLi = document.createElement("li")
 createLi.dataset.id = bulletinId
 createLi.innerText = userInput 
 
-const deleteComment = document.createElement("button") 
-console.log(deleteComment)
-deleteComment.innerText = "DELETE" 
-createLi.appendChild(deleteComment)
-//console.log(createLi)
+const deleteCommentBtn = document.createElement("button") 
+
+deleteCommentBtn.innerText = "DELETE" 
+createLi.appendChild(deleteCommentBtn)
+
 commentList.appendChild(createLi)  
 
 const options = {
@@ -42,7 +42,9 @@ const options = {
        
     })  
     e.target.reset()
-  }   
+  }    
+
+  static 
 
     
 } //
