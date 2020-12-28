@@ -12,7 +12,7 @@ const userInput = e.target.children[0].value
 const commentList = e.target.nextElementSibling
 const bulletinId = e.target.parentElement.dataset.id 
 
-//const createLi = document.createElement("li")
+const createLi = document.createElement("li")
 createLi.dataset.id = bulletinId
 createLi.innerText = userInput 
 
@@ -48,12 +48,16 @@ const options = {
 
 
   deleteComment(e){ 
-    //debugger;   
+    //debugger;  
+    const deleteCommentBtn = document.createElement("button") 
+    deleteCommentBtn.innerText = "X"   
+     //console.log(e.target)
+    deleteCommentBtn.addEventListener("click") 
 
-  
+    //console.log(e.target) 
 
+    //createLi.innerHTML += `<button data-id= ${this.id} onclick="deleteComment()"> X </button>`
 
-    //console.log(e.target)
 
   }
 
