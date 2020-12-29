@@ -11,7 +11,7 @@ class Comment {
      const commentList = e.target.nextElementSibling //ul
      const bulletinId = e.target.parentElement.dataset.id  
 
-     Comment.submitComment
+     Comment.submitComment(userInput, commentList, bulletinId)
   }
 
 // static submitComment(e) { 
