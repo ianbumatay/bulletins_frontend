@@ -49,7 +49,7 @@ class Bulletin{
  
     const commentForm = document.createElement("form")
     commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
-    commentForm.addEventListener("submit", Comment.createComment)
+    commentForm.addEventListener("submit", Comment.submitComment)
 
 
     const deleteBtn = document.createElement("button") 
