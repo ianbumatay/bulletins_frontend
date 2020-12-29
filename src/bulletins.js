@@ -49,13 +49,17 @@ class Bulletin{
  
     const commentForm = document.createElement("form")
     commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
-    commentForm.addEventListener("submit", Comment.submitComment)
+    commentForm.addEventListener("submit", Comment.createComment)
 
 
     const deleteBtn = document.createElement("button") 
  
     deleteBtn.innerText = "DELETE" 
-    deleteBtn.addEventListener("click", this.deleteBulletin)
+    deleteBtn.addEventListener("click", this.deleteBulletin) 
+
+    // const createCommentList = document.createElement('ul')
+    // const li = document.createElement("li") 
+    // createCommentList.appendChild(li)
 
     const createCommentList = document.createElement('ul') 
     this.comments.forEach(comment => {
@@ -64,7 +68,10 @@ class Bulletin{
       createCommentList.appendChild(li)
     })
 
-    createDiv.append(hTag, pTag, commentForm, createCommentList,deleteBtn)
+    createDiv.append(hTag, pTag, commentForm, createCommentList,deleteBtn)  
+   
+  
+  
 }
 
 
