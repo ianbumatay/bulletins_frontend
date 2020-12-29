@@ -12,7 +12,30 @@ class Comment {
      const bulletinId = e.target.parentElement.dataset.id  
 
      Comment.submitComment(userInput, commentList, bulletinId)
+
+     e.target.reset()
+  }  
+
+  static submitComment(comment, commentList, bulletinId){ 
+
+    const options = {
+      method: "POST",
+      headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({comment: {content: userInput, bulletin_id: bulletinId}})
+    } 
+
+    fetch(`${BACKEND_URL}/comments`, options)
+      .then(response => response.json())
+      .then(comment => {
+
+        let c = new Comment(comment)
+        c.renderCommment(commentList)
+      })
   }
+
 
 // static submitComment(e) { 
 //   e.preventDefault()
