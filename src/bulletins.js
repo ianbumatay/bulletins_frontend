@@ -71,7 +71,7 @@
     //createDiv.append(hTag, pTag)  
     //createDiv.append(hTag, pTag, createCommentList,deleteBtn) 
     
-} 
+//} 
 
 
 // renderForm(){ 
