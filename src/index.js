@@ -8,4 +8,4 @@ const BACKEND_URL = "http://localhost:3000/";
 
 // bulletinForm.addEventListener("submit", Bulletin.submitBulletin) 
    
-// Bulletin.fetchBulletin()   
+Bulletin.fetchBulletin()   
