@@ -142,21 +142,51 @@ class Bulletin {
     this.comment = bulletin.attributes.comment
   }
 
- static fetchBulletin(){
+  static fetchBulletin(){
     fetch(`${BACKEND_URL}/bulletins`)
     .then(response => response.json())
     .then(bulletins => {
     
-      for(const bulletin of bulletins) { 
-      let b = new Bulletin( bulletin.data) 
-      } 
-      b.render()
+      for(const bulletin of bulletins){
+        console.log("rails", bulletins)
+        let b = new Bulletin(bulletin.data) 
+        console.log("js", b)
+        b.render();
+      }
     })
- }  
+  }  
 
- render(){
-   
- }
+  render(){ 
+    const divTag = document.querySelector("#bullets-container") 
+
+    console.log(divTag)
+    this.divTag = divTag
+
+    this.renderBulletin() 
+
+    // divTag.innerHTML +=
+    // `<ul> 
+    // <li>${this.content}</li>
+    // </ul>
+    // `
+    
+  } 
+
+  renderBulletin(){ 
+
+    // const createUl = document.createElement("ul") 
+    
+    // const createLi = document.createElement("li") 
+
+    this.divTag.innerHTML +=
+
+    `<ul> 
+    <li>${this.content}</li>
+    </ul>
+    `
+    
+
+  }
 
 
 }//
