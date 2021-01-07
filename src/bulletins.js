@@ -141,16 +141,23 @@ class Bulletin {
     this.content = bulletin.attributes.content
     this.comment = bulletin.attributes.comment
   }
-}
 
-static fetchBulletin(){
+ static fetchBulletin(){
     fetch(`${BACKEND_URL}/bulletins`)
     .then(response => response.json())
     .then(bulletins => {
     
-    for(const bulletin of bulletins) { 
-    let b = new Bulletin( bulletin.data) 
-    } 
-    ()
-  })
-}  
+      for(const bulletin of bulletins) { 
+      let b = new Bulletin( bulletin.data) 
+      } 
+      b.render()
+    })
+ }  
+
+ render(){
+   
+ }
+
+
+}//
+
