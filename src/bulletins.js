@@ -154,7 +154,8 @@ class Bulletin {
         b.render();
       }
     })
-  }  
+  }   
+
 
   render(){ 
     const divTag = document.querySelector("#bullets-container") 
@@ -162,6 +163,7 @@ class Bulletin {
     this.divTag = divTag
 
     this.renderBulletin() 
+    this.renderDelete()
     
   } 
 
@@ -169,13 +171,22 @@ class Bulletin {
 
     // this.divTag.innerHTML += `<ul> <li>${this.content}</li></ul> ` 
 
-   const createUl = document.createElement("ul") 
-   const createLi = document.createElement("li") 
-   createLi.innerText = this.content 
+   const createHtag = document.createElement("h2") 
+   const createPtag = document.createElement("p") 
+   createPtag.innerText = this.content 
 
-   createUl.appendChild(createLi)
-   this.divTag.appendChild(createUl)
+   createHtag.appendChild(createPtag)
+   this.divTag.appendChild(createHtag)
+  }  
+
+  renderDelete(){ 
+   const deleteBtn = document.createElement("button") 
+    deleteBtn.innerText = "DELETE" 
+    deleteBtn.addEventListener("click", this.deleteBulletin) 
+    this.divTag.append(deleteBtn)
   } 
+
+ 
 
   static submitBulletin(e){
     e.preventDefault() 
@@ -200,6 +211,10 @@ class Bulletin {
            b.render()
     }) 
   }  
+
+  deleteBulletin(){
+    
+  }
 
 
 }//
