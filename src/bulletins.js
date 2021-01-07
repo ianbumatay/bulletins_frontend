@@ -135,4 +135,10 @@
 // } //  code end 
 
 
-
+class Bulletin {
+  constructor(bulletin){
+    this.id = bulletin.id
+    this.content = bulletin.attributes.content
+    this.comment = bulletin.attributes.comment
+  }
+}
