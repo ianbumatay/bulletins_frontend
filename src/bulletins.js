@@ -14,7 +14,7 @@ class Bulletin{
 
      static renderBulletins(){
          for(let bulletin of this.allBulletins){
-             bulletin.renderBulletin()
+             bulletin.render()
          }
      }
 
@@ -29,51 +29,75 @@ class Bulletin{
       } 
       this.renderBulletins()
     })
-   }   
-
-
-  renderBulletin(){
-
+   }  
+   
+   render(){
      const divTag = document.querySelector("#bullets-container")
      const createDiv = document.createElement("div")
-     createDiv.dataset.id = this.id
+     //createDiv.dataset.id = this.id
+     this.createDiv = createDiv
+     divTag.appendChild(createDiv) 
+   
+     this.renderBulletin(createDiv)
+     this.renderForm()
+     this.renderDelete()
+     this.renderComments()
   
-    divTag.appendChild(createDiv) 
-  
+   }
+
+
+  renderBulletin(createDiv){
+
     const hTag = document.createElement("h2")
     hTag.innerText = this.title
     const pTag = document.createElement("p")
     pTag.innerText = this.content
+    this.createDiv.append(hTag, pTag)
+    // const commentForm = document.createElement("form")
+    // commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
+    // commentForm.addEventListener("submit", Comment.submitComment)
+
+    // const deleteBtn = document.createElement("button") 
+    // deleteBtn.innerText = "DELETE" 
+    // deleteBtn.addEventListener("click", this.deleteBulletin) 
+
+    // const createCommentList = document.createElement('ul') 
+    // this.comments.forEach(comment => {
+    //   const li = document.createElement("li")
+    //   li.innerText = comment.content
+    //   createCommentList.appendChild(li)
+    // })
+
+    //createDiv.append(hTag, pTag)  
+    //createDiv.append(hTag, pTag, createCommentList,deleteBtn) 
+    
+} 
 
 
- 
-    const commentForm = document.createElement("form")
-    commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
-    commentForm.addEventListener("submit", Comment.submitComment)
+renderForm(){ 
+  const commentForm = document.createElement("form")
+  commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
+  commentForm.addEventListener("submit", Comment.submitComment) 
+  this.createDiv.append(commentForm)
+} 
 
-
-    const deleteBtn = document.createElement("button") 
- 
+renderDelete(){ 
+   const deleteBtn = document.createElement("button") 
     deleteBtn.innerText = "DELETE" 
     deleteBtn.addEventListener("click", this.deleteBulletin) 
+    this.createDiv.append(deleteBtn)
+} 
 
-    // const createCommentList = document.createElement('ul')
-    // const li = document.createElement("li") 
-    // createCommentList.appendChild(li)
 
+renderComments(){ 
     const createCommentList = document.createElement('ul') 
     this.comments.forEach(comment => {
       const li = document.createElement("li")
       li.innerText = comment.content
       createCommentList.appendChild(li)
     })
-
-    createDiv.append(hTag, pTag, commentForm, createCommentList,deleteBtn)  
-   
-  
-  
+    this.createDiv.append(createCommentList)
 }
-
 
   static submitBulletin(e){
     e.preventDefault() 
