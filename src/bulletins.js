@@ -158,35 +158,48 @@ class Bulletin {
 
   render(){ 
     const divTag = document.querySelector("#bullets-container") 
-
-    console.log(divTag)
+    //console.log(divTag)
     this.divTag = divTag
 
     this.renderBulletin() 
-
-    // divTag.innerHTML +=
-    // `<ul> 
-    // <li>${this.content}</li>
-    // </ul>
-    // `
     
   } 
 
   renderBulletin(){ 
 
-    // const createUl = document.createElement("ul") 
-    
-    // const createLi = document.createElement("li") 
+    // this.divTag.innerHTML += `<ul> <li>${this.content}</li></ul> ` 
 
-    this.divTag.innerHTML +=
+   const createUl = document.createElement("ul") 
+   const createLi = document.createElement("li") 
+   createLi.innerText = this.content 
 
-    `<ul> 
-    <li>${this.content}</li>
-    </ul>
-    `
-    
+   createUl.appendChild(createLi)
+   this.divTag.appendChild(createUl)
+  } 
 
-  }
+  static submitBulletin(e){
+    e.preventDefault() 
+ 
+    //const title = document.querySelector("#title").value
+    const content = document.querySelector("#content").value 
+ 
+    const options = {
+      method: "POST",
+      headers: {
+       'Accept': 'application/json',
+       'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({bulletin: {content: content}})
+    }
+ 
+   fetch(`${BACKEND_URL}/bulletins`, options)
+     .then(response => response.json())
+     .then(bulletin => { 
+       
+           let b = new Bulletin(bulletin.data)
+           b.render()
+    }) 
+  }  
 
 
 }//
