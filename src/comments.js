@@ -55,6 +55,10 @@ class Comment {
   
   static submitComment(e){
     e.preventDefault() 
+   //debugger;
+    console.log(e.target.firstElementChild) 
+
+    const userInput = e.target.firstElementChild.value
 
     //query input 
 
@@ -64,7 +68,7 @@ class Comment {
         'Accept': 'application/json', 
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({}) // set up params
+      body: JSON.stringify({comment: {content: userInput}}) // set up params
     } 
 
     fetch(`${BACKEND_URL}/comments`, options)
