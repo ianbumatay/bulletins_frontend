@@ -76,7 +76,7 @@
 
 // renderForm(){ 
 //   const commentForm = document.createElement("form")
-//   commentForm.innerHTML += `<input type="text"  placeholder="comment"> <input type="submit">`
+//   commentForm.innerHTML += `<input type="text"          placeholder="comment"> <input type="submit">`
 //   commentForm.addEventListener("submit", Comment.submitComment) 
 //   this.createDiv.append(commentForm)
 // } 
@@ -159,10 +159,15 @@ class Bulletin {
 
   render(){ 
     const divTag = document.querySelector("#bullets-container") 
-    //console.log(divTag)
-    this.divTag = divTag
+    //this.divTag = divTag
+    const createDiv = document.createElement("div")
+    createDiv.dataset.id = this.id
+    this.createDiv = createDiv
+    divTag.appendChild(createDiv) 
 
-    this.renderBulletin() 
+    this.renderBulletin()
+    //this.renderDelete()
+    //this.renderCommentForm() 
     this.renderDelete()
     
   } 
@@ -172,21 +177,29 @@ class Bulletin {
     // this.divTag.innerHTML += `<ul> <li>${this.content}</li></ul> ` 
 
    const createHtag = document.createElement("h2") 
-   createHtag.dataset.id = this.id
+   //createHtag.dataset.id = this.id
    const createPtag = document.createElement("p") 
    createPtag.innerText = this.content 
 
    createHtag.appendChild(createPtag)
-   this.divTag.appendChild(createHtag)
+   this.createDiv.appendChild(createHtag)
   }  
 
+  
   renderDelete(){ 
    const deleteBtn = document.createElement("button") 
     deleteBtn.innerText = "DELETE" 
     //deleteBtn.dataset.id = this.id
     deleteBtn.addEventListener("click", this.deleteBulletin) 
-    this.divTag.append(deleteBtn)
+    this.createDiv.append(deleteBtn)
   } 
+
+  // renderCommentForm(){ 
+  //   const commentForm = document.createElement("form")
+  //   commentForm.innerHTML += `<input type="text"          placeholder="comment"> <input type="submit">`
+  //   commentForm.addEventListener("submit", Comment.submitComment) 
+  //   this.createDiv.append(commentForm)
+  // } 
 
  
 
@@ -216,18 +229,19 @@ class Bulletin {
 
   deleteBulletin(e){ 
   //debugger; 
-   console.log(e.target.previousSibling) 
-   //console.log(e.target.ParentElement)
+   //console.log(e.target.previousSibling) 
+  console.log(e.target.parentElement)
 
-    // let deleteId = parseInt(e.target.dataset.id) 
-    let deleteId = this.previousSibling.dataset.id 
-    // console.log(deleteId)
+   //let deleteId = parseInt(e.target.dataset.id) 
+  let deleteId = this.parentElement.dataset.id 
+  //   // // console.log(deleteId)
     
     fetch(`${BACKEND_URL}/bulletins/${deleteId}`, {
          method: "DELETE" 
       })
-      console.log(this)
-    this.previousSibling.remove()
+      //console.log(this)
+    this.parentElement.remove() 
+    
      
   }
 
