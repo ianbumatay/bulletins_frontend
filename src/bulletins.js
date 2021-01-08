@@ -148,9 +148,9 @@ class Bulletin {
     .then(bulletins => {
     
       for(const bulletin of bulletins){
-        console.log("rails", bulletins)
+        //console.log("rails", bulletins)
         let b = new Bulletin(bulletin.data) 
-        console.log("js", b)
+        //console.log("js", b)
         b.render();
       }
     })
@@ -172,6 +172,7 @@ class Bulletin {
     // this.divTag.innerHTML += `<ul> <li>${this.content}</li></ul> ` 
 
    const createHtag = document.createElement("h2") 
+   createHtag.dataset.id = this.id
    const createPtag = document.createElement("p") 
    createPtag.innerText = this.content 
 
@@ -182,6 +183,7 @@ class Bulletin {
   renderDelete(){ 
    const deleteBtn = document.createElement("button") 
     deleteBtn.innerText = "DELETE" 
+    deleteBtn.dataset.id = this.id
     deleteBtn.addEventListener("click", this.deleteBulletin) 
     this.divTag.append(deleteBtn)
   } 
@@ -212,8 +214,21 @@ class Bulletin {
     }) 
   }  
 
-  deleteBulletin(){
+  deleteBulletin(e){ 
+  debugger; 
+   console.log(e.target) 
+   //console.log(e.target.ParentElement)
+
+    // let deleteId = parseInt(e.target.dataset.id) 
+    // //let deleteId = this.dataset.id 
+    // console.log(deleteId)
     
+    // fetch(`${BACKEND_URL}/bulletins/${deleteId}`, {
+    //      method: "DELETE" 
+    //   })
+    //   //console.log(this)
+    // this.location.reload()
+     
   }
 
 
