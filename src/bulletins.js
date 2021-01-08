@@ -169,7 +169,7 @@ class Bulletin {
     this.renderBulletin()
     //this.renderDelete()
     this.renderCommentForm() 
-    this.renderComments()
+    this.createComments()
     this.renderDelete()
     
   } 
@@ -209,7 +209,7 @@ class Bulletin {
     this.createDiv.append(commentForm)
   }   
 
-  renderComments(){ 
+  createComments(){ 
     const createCommentList = document.createElement('ul') 
 //     this.comments.forEach(comment => {
 //       const li = document.createElement("li")

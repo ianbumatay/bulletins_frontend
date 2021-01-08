@@ -17,10 +17,10 @@ const userInput = e.target.children[0].value //input
 // console.log(input2.parentElement)
 
 const commentList = e.target.nextElementSibling //delete button
-console.log(commentList)
+//console.log(commentList)
 
 const bulletinId = e.target.parentElement.dataset.id 
-//console.log(bulletinId)
+console.log(e.target.parentElement)
 
 const createLi = document.createElement("li")
 createLi.dataset.id = bulletinId
@@ -44,19 +44,30 @@ const options = {
     .then(comment => {
       
     let c = new Comment(comment.data) 
-      c.render()
+      //c.render()
     
     })  
     e.target.reset()
   }    
   
   render(){
-    const commentForm = document.querySelector("#comment-form") 
-    console.log(commentForm)
-    // console.log(commentForm.children[0])
-    console.log(commentForm.nextElementSibling) 
 
-    const commentList = commentForm.nextElementSibling
+    // const commentForm = document.querySelector("#comment-form") 
+    // console.log(commentForm.parentElement)
+   
+    // //console.log(commentForm.nextElementSibling) 
+    // const commentList = commentForm.nextElementSibling 
+
+    // const bulletinId = commentForm.parentElement.dataset.id 
+
+    // const createLi = document.createElement("li")
+    // createLi.dataset.id = bulletinId
+    // createLi.innerText = userInput  
+
+    // commentList.appendChild(createLi)  
+
+
+
 
     // const ul = document.createElement("ul") 
     // const li = document.createElement("li") 
