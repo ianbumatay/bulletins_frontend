@@ -183,7 +183,7 @@ class Bulletin {
   renderDelete(){ 
    const deleteBtn = document.createElement("button") 
     deleteBtn.innerText = "DELETE" 
-    deleteBtn.dataset.id = this.id
+    //deleteBtn.dataset.id = this.id
     deleteBtn.addEventListener("click", this.deleteBulletin) 
     this.divTag.append(deleteBtn)
   } 
@@ -215,19 +215,19 @@ class Bulletin {
   }  
 
   deleteBulletin(e){ 
-  debugger; 
-   console.log(e.target) 
+  //debugger; 
+   console.log(e.target.previousSibling) 
    //console.log(e.target.ParentElement)
 
     // let deleteId = parseInt(e.target.dataset.id) 
-    // //let deleteId = this.dataset.id 
+    let deleteId = this.previousSibling.dataset.id 
     // console.log(deleteId)
     
-    // fetch(`${BACKEND_URL}/bulletins/${deleteId}`, {
-    //      method: "DELETE" 
-    //   })
-    //   //console.log(this)
-    // this.location.reload()
+    fetch(`${BACKEND_URL}/bulletins/${deleteId}`, {
+         method: "DELETE" 
+      })
+      console.log(this)
+    this.previousSibling.remove()
      
   }
 
