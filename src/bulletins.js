@@ -160,14 +160,16 @@ class Bulletin {
   render(){ 
     const divTag = document.querySelector("#bullets-container") 
     //this.divTag = divTag
-    const createDiv = document.createElement("div")
-    createDiv.dataset.id = this.id
+    let createDiv = document.createElement("div")
+    createDiv.dataset.id = this.id 
+    createDiv.setAttribute("id", "create-div")
     this.createDiv = createDiv
     divTag.appendChild(createDiv) 
 
     this.renderBulletin()
     //this.renderDelete()
     this.renderCommentForm() 
+    this.renderComments()
     this.renderDelete()
     
   } 
@@ -196,10 +198,28 @@ class Bulletin {
 
   renderCommentForm(){ 
     const commentForm = document.createElement("form")
-    commentForm.innerHTML += `<input type="text"          placeholder="comment"> <input type="submit">`
+    commentForm.innerHTML += ` <input type="text" placeholder="Comment">  <input type="submit"> `
+    commentForm.setAttribute("id", "comment-form") 
+
+    // const commentUl =document.createElement("ul")
+    // commentForm.append(commentUl)
+    // commentUl.setAttribute("id", "comment-ul")
+
     commentForm.addEventListener("submit", Comment.submitComment) 
     this.createDiv.append(commentForm)
-  } 
+  }   
+
+  renderComments(){ 
+    const createCommentList = document.createElement('ul') 
+//     this.comments.forEach(comment => {
+//       const li = document.createElement("li")
+//       li.innerText = comment.content
+//       createCommentList.appendChild(li)
+//     })
+    this.createDiv.append(createCommentList)
+}
+
+
 
  
 
