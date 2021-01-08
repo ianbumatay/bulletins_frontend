@@ -46,3 +46,38 @@
 // } //
 
 
+class Comment {
+  constructor(comment){
+    this.id = comment.id 
+    this.bulletin_id = comment.attributes.bulletin_id
+    this.content = comment.attributes.content
+  } 
+  
+  static submitComment(e){
+    e.preventDefault() 
+
+    //query input 
+
+    const options = {
+      method: "POST", 
+      headers: {
+        'Accept': 'application/json', 
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({}) // set up params
+    } 
+
+    fetch(`${BACKEND_URL}/comments`, options)
+      .then(response => response.json()) 
+      .then(comment => {
+
+         
+      })
+
+
+  }
+
+
+
+} 
+
