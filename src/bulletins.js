@@ -167,7 +167,7 @@ class Bulletin {
 
     this.renderBulletin()
     //this.renderDelete()
-    //this.renderCommentForm() 
+    this.renderCommentForm() 
     this.renderDelete()
     
   } 
@@ -194,12 +194,12 @@ class Bulletin {
     this.createDiv.append(deleteBtn)
   } 
 
-  // renderCommentForm(){ 
-  //   const commentForm = document.createElement("form")
-  //   commentForm.innerHTML += `<input type="text"          placeholder="comment"> <input type="submit">`
-  //   commentForm.addEventListener("submit", Comment.submitComment) 
-  //   this.createDiv.append(commentForm)
-  // } 
+  renderCommentForm(){ 
+    const commentForm = document.createElement("form")
+    commentForm.innerHTML += `<input type="text"          placeholder="comment"> <input type="submit">`
+    commentForm.addEventListener("submit", Comment.submitComment) 
+    this.createDiv.append(commentForm)
+  } 
 
  
 
