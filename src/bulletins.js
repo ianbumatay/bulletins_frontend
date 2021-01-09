@@ -139,7 +139,7 @@ class Bulletin {
   constructor(bulletin){
     this.id = bulletin.id
     this.content = bulletin.attributes.content
-    this.comment = bulletin.attributes.comment
+    this.comments = bulletin.attributes.comments
   }
 
   static fetchBulletin(){
@@ -214,10 +214,10 @@ class Bulletin {
     createCommentList.setAttribute("id", "comment-ul") 
 
     // this.comments.forEach(comment => {
-    //   const li = document.createElement("li")
-    //   li.innerText = comment.content
-    //   createCommentList.appendChild(li)
+    //   const c = new Comment(comment)
+    //      c.renderComment(commentList)
     // })
+    
     this.createDiv.append(createCommentList)
 }
 
