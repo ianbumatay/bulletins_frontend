@@ -160,7 +160,7 @@ class Bulletin {
   render(){ 
     const divTag = document.querySelector("#bullets-container") 
     //this.divTag = divTag
-    let createDiv = document.createElement("div")
+    const createDiv = document.createElement("div")
     createDiv.dataset.id = this.id 
     createDiv.setAttribute("id", "create-div")
     this.createDiv = createDiv
@@ -210,12 +210,14 @@ class Bulletin {
   }   
 
   createComments(){ 
-    const createCommentList = document.createElement('ul') 
-//     this.comments.forEach(comment => {
-//       const li = document.createElement("li")
-//       li.innerText = comment.content
-//       createCommentList.appendChild(li)
-//     })
+    const createCommentList = document.createElement('ul')
+    createCommentList.setAttribute("id", "comment-ul") 
+
+    // this.comments.forEach(comment => {
+    //   const li = document.createElement("li")
+    //   li.innerText = comment.content
+    //   createCommentList.appendChild(li)
+    // })
     this.createDiv.append(createCommentList)
 }
 

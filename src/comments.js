@@ -3,32 +3,29 @@ class Comment {
     this.id = comment.id 
     this.bulletin_id = comment.attributes.bulletin_id
     this.content = comment.attributes.content
-  }    
+  }  
+  
 
 
 static submitComment(e) { 
   e.preventDefault()
 
 const userInput = e.target.children[0].value //input
+//this.userInput = userInput
 
-
-// const input2 = document.querySelector("#comment-form") 
-// console.log(input2.children[0].value)
-// console.log(input2.parentElement)
-
-const commentList = e.target.nextElementSibling //delete button
+const commentList = e.target.nextElementSibling //this is ul button
+//this.commentList = commentList
 //console.log(commentList)
 
 const bulletinId = e.target.parentElement.dataset.id 
-console.log(e.target.parentElement)
+//  this.bulletinId = bulletinId
+// // this.bulletinId = bulletinId
+//console.log(e.target.parentElement)
 
-const createLi = document.createElement("li")
-createLi.dataset.id = bulletinId
-createLi.innerText = userInput  
-
- commentList.appendChild(createLi)  
-
-
+// const createLi = document.createElement("li")
+// createLi.dataset.id = bulletinId
+// createLi.innerText = userInput  
+// commentList.appendChild(createLi)  
 
 const options = {
   method: "POST",
@@ -39,50 +36,73 @@ const options = {
   body: JSON.stringify({comment: {content: userInput, bulletin_id: bulletinId}})
 } 
 
+
+
   fetch(`${BACKEND_URL}/comments`, options)
     .then(response => response.json())
     .then(comment => {
       
     let c = new Comment(comment.data) 
-      //c.render()
+      c.renderComment(commentList, bulletinId)
     
     })  
-    e.target.reset()
-  }    
+    e.target.reset() 
+
+  }   
   
-  render(){
+  
+  renderComment(commentList, bulletinId){  
 
-    // const commentForm = document.querySelector("#comment-form") 
-    // console.log(commentForm.parentElement)
-   
-    // //console.log(commentForm.nextElementSibling) 
-    // const commentList = commentForm.nextElementSibling 
+    //const commentForm = document.querySelector("#comment-form") //form
+    //console.log(commentForm) 
 
-    // const bulletinId = commentForm.parentElement.dataset.id 
+    //const commentList = commentForm.nextElementSibling // ul
+    //console.log(commentList) 
 
-    // const createLi = document.createElement("li")
-    // createLi.dataset.id = bulletinId
-    // createLi.innerText = userInput  
-
-    // commentList.appendChild(createLi)  
-
-
-
-
-    // const ul = document.createElement("ul") 
-    // const li = document.createElement("li") 
-
-    // let createDiv = document.querySelector("#create-div")
-
-    // ul.append(li)
-    // createDiv.append(ul)
+    // const divId = document.querySelector("#create-div")
+    // console.log(divId)
     
+    const createLi = document.createElement("li")
+    createLi.dataset.id = this.bulletinId
+    createLi.innerText = this.content
+    
+     commentList.appendChild(createLi)  
 
-  }
+  } 
+
+//   static fetchComment(){
+//   fetch(`${BACKEND_URL}/comments`)
+//   .then(response => response.json())
+//   .then(comments => {
+  
+//     for(const comment of comments){
+//       //console.log("rails", bulletins)
+//       let b = new Comment(comment.data) 
+//       //console.log("js", b)
+//       //b.renderComments();
+//     }
+//   })
+// }   
   
 
     
-} //
+} // 
+
+// static fetchBulletin(){
+//   fetch(`${BACKEND_URL}/comments`)
+//   .then(response => response.json())
+//   .then(bulletins => {
+  
+//     for(const comment of comments){
+//       //console.log("rails", bulletins)
+//       let b = new Comment(comment.data) 
+//       //console.log("js", b)
+//       b.renderComments();
+//     }
+//   })
+// }   
+
+
 
 
 // class Comment {
