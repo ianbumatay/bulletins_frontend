@@ -18,7 +18,7 @@ class Comment {
   const bulletinId = e.target.parentElement.dataset.id  
   //console.log(e.target.parentElement) 
 
-
+Comment.submitComment(userInput, commentList, bulletinId)
     e.target.reset() 
 
     
