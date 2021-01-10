@@ -213,9 +213,11 @@ class Bulletin {
     const createCommentList = document.createElement('ul')
     createCommentList.setAttribute("id", "comment-ul") 
 
-    // this.comments.forEach(comment => {
-    //   const c = new Comment(comment)
-    //      c.renderComment(commentList)
+    // this.comments.forEach(comment => { 
+    //   console>log(comment)
+    //   const c = new Comment(comment) 
+    //   console.log(c)
+    //   c.renderComment(commentList, createLi)
     // })
     
     this.createDiv.append(createCommentList)
