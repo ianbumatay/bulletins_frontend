@@ -168,8 +168,9 @@ class Bulletin {
 
     this.renderBulletin()
     //this.renderDelete()
+     //this.createComments()
     this.renderCommentForm() 
-    this.createComments()
+    //this.createComments()
     this.renderDelete()
     
   } 
@@ -198,30 +199,32 @@ class Bulletin {
 
   renderCommentForm(){ 
     const commentForm = document.createElement("form")
-    commentForm.innerHTML += ` <input type="text" placeholder="Comment">  <input type="submit"> `
+    commentForm.innerHTML += ` <input type="text" id="comment-input" placeholder="Comment">  <input type="submit"> `
     commentForm.setAttribute("id", "comment-form") 
+    commentForm.dataset.id = this.id
 
-    // const commentUl =document.createElement("ul")
+      //const commentUl =document.createElement("ul")
     // commentForm.append(commentUl)
-    // commentUl.setAttribute("id", "comment-ul")
+     // commentUl.setAttribute("id", "comment-ul")
 
     commentForm.addEventListener("submit", Comment.submitComment) 
     this.createDiv.append(commentForm)
   }   
 
-  createComments(){ 
-    const createCommentList = document.createElement('ul')
-    createCommentList.setAttribute("id", "comment-ul") 
-
-    // this.comments.forEach(comment => { 
-    //   console>log(comment)
-    //   const c = new Comment(comment) 
-    //   console.log(c)
-    //   c.renderComment(commentList, createLi)
-    // })
+  // createComments(){ 
+  //   const createCommentList = document.createElement('ul')
+  //   createCommentList.setAttribute("id", "comment-ul") 
     
-    this.createDiv.append(createCommentList)
-}
+
+  //   // this.comments.data.forEach(comment => { 
+  //   //   console>log(comment)
+  //   //   const c = new Comment(comment) 
+  //   //   console.log(c)
+  //   //   c.renderComment(commentList)
+  //   // })
+    
+  //   this.createDiv.append(createCommentList)
+//}
 
 
 
