@@ -32,7 +32,6 @@ class Bulletin {
   render(){ 
     
     const bulletsFormDiv = document.querySelector("#bullets-form-div") 
-
     const createDiv = document.createElement("div") 
 
     createDiv.dataset.id = this.id 
@@ -43,21 +42,15 @@ class Bulletin {
 
     this.renderBulletin()
     this.renderCommentForm() 
-    this.renderDelete()
-    
+    this.renderDelete() 
   } 
 
   renderBulletin(){ 
 
-    // this.divTag.innerHTML += `<ul> <li>${this.content}</li></ul> ` 
-
    const createHtag = document.createElement("h2") 
-   //createHtag.dataset.id = this.id
    const createPtag = document.createElement("p") 
-   createPtag.innerText = this.content 
 
    createHtag.appendChild(createPtag)
-   //this.divTag.appendChild(createHtag)
    this.createDiv.appendChild(createHtag)
   }  
 
