@@ -13,16 +13,14 @@ class Bulletin {
     .then(bulletins => {
     
         for(const bulletin of bulletins){
-        //console.log("rails", bulletins)
+        
           let b = new Bulletin(bulletin.data) 
-          //console.log(b.comments)
+         
           bulletin.data.attributes.comments.forEach(comment => {
           const c = new Comment(comment) 
-          //console.log(c) 
           b.comments.push(c) 
         
         })
-       //console.log(b.comments)
         b.render();
       }
     })
@@ -104,7 +102,7 @@ class Bulletin {
   }  
 
   deleteBulletin(e){ 
-    
+
   let deleteId = this.parentElement.dataset.id 
  
     fetch(`${BACKEND_URL}/bulletins/${deleteId}`, {
