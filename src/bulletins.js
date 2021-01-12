@@ -47,8 +47,10 @@ class Bulletin {
 
   renderBulletin(){ 
 
+
    const createHtag = document.createElement("h2") 
    const createPtag = document.createElement("p") 
+   createPtag.innerText = this.content 
 
    createHtag.appendChild(createPtag)
    this.createDiv.appendChild(createHtag)
@@ -58,12 +60,6 @@ class Bulletin {
     const commentForm = document.createElement("form")
     commentForm.innerHTML += ` <input type="text" id="comment-input" placeholder="Comment">  <input type="submit">`
     commentForm.setAttribute("id", "comment-form") 
-    commentForm.dataset.id = this.id
-
-      //const commentUl =document.createElement("ul")
-    // commentForm.append(commentUl)
-     // commentUl.setAttribute("id", "comment-ul")
-
     commentForm.addEventListener("submit", Comment.submitComment) 
 
     const createUl = document.createElement('ul')
@@ -73,7 +69,6 @@ class Bulletin {
       comment.renderComment(createUl)
     })
     this.createDiv.append(commentForm, createUl) 
-    //this.divTag.append(commentForm)
   }   
 
   
