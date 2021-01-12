@@ -73,23 +73,16 @@ class Bulletin {
 
   
   renderDelete(){ 
-   const deleteBtn = document.createElement("button") 
+    const deleteBtn = document.createElement("button") 
     deleteBtn.innerText = "DELETE" 
-    //deleteBtn.dataset.id = this.id
     deleteBtn.addEventListener("click", this.deleteBulletin) 
     this.createDiv.append(deleteBtn) 
-    //this.divTag.append(deleteBtn)
   } 
-
- 
-
- 
  
 
   static submitBulletin(e){
     e.preventDefault() 
  
-    //const title = document.querySelector("#title").value
     const content = document.querySelector("#content").value 
  
     const options = {
@@ -111,23 +104,15 @@ class Bulletin {
   }  
 
   deleteBulletin(e){ 
-  //debugger; 
-   //console.log(e.target.previousSibling) 
-  console.log(e.target.parentElement)
-  console.log(e.target)
-   //let deleteId = parseInt(e.target.dataset.id) 
-  let deleteId = this.parentElement.dataset.id 
-  //   // // console.log(deleteId)
     
+  let deleteId = this.parentElement.dataset.id 
+ 
     fetch(`${BACKEND_URL}/bulletins/${deleteId}`, {
          method: "DELETE" 
       })
-      //console.log(this)
-    this.parentElement.remove() 
-    
-     
+    this.parentElement.remove()   
   }
 
 
-}//
+}
 
