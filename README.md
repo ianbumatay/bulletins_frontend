@@ -38,8 +38,8 @@ Please make sure to update tests as appropriate.
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
 
-#3 Code of conduct
+#Code of conduct
 Everyone interacting in the The Bulletins project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
 
 * ...
-# bulletins_backend
+
