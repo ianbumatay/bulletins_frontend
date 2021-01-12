@@ -139,7 +139,8 @@ class Bulletin {
   constructor(bulletin){
     this.id = bulletin.id
     this.content = bulletin.attributes.content
-    this.comments = bulletin.attributes.comments
+    this.comments = []
+    
   }
 
   static fetchBulletin(){
@@ -150,7 +151,15 @@ class Bulletin {
       for(const bulletin of bulletins){
         //console.log("rails", bulletins)
         let b = new Bulletin(bulletin.data) 
+        console.log(b.comments)
+        bulletin.data.attributes.comments.forEach(comment => {
+          const c = new Comment(comment) 
+          console.log(c) 
+          b.comments.push(c) 
+        
+        })
         //console.log("js", b)
+        console.log(b.comments)
         b.render();
       }
     })
@@ -159,18 +168,19 @@ class Bulletin {
 
   render(){ 
     const divTag = document.querySelector("#bullets-container") 
-    //this.divTag = divTag
+    this.divTag = divTag 
+
+    const bulletsFormDiv = document.querySelector("#bullets-form-div") 
     const createDiv = document.createElement("div")
     createDiv.dataset.id = this.id 
     createDiv.setAttribute("id", "create-div")
     this.createDiv = createDiv
-    divTag.appendChild(createDiv) 
+    bulletsFormDiv.appendChild(createDiv) 
 
     this.renderBulletin()
-    //this.renderDelete()
-     //this.createComments()
+    //this.createUl()
     this.renderCommentForm() 
-    //this.createComments()
+    //this.createUl()
     this.renderDelete()
     
   } 
@@ -185,21 +195,13 @@ class Bulletin {
    createPtag.innerText = this.content 
 
    createHtag.appendChild(createPtag)
+   //this.divTag.appendChild(createHtag)
    this.createDiv.appendChild(createHtag)
   }  
 
-  
-  renderDelete(){ 
-   const deleteBtn = document.createElement("button") 
-    deleteBtn.innerText = "DELETE" 
-    //deleteBtn.dataset.id = this.id
-    deleteBtn.addEventListener("click", this.deleteBulletin) 
-    this.createDiv.append(deleteBtn)
-  } 
-
   renderCommentForm(){ 
     const commentForm = document.createElement("form")
-    commentForm.innerHTML += ` <input type="text" id="comment-input" placeholder="Comment">  <input type="submit"> `
+    commentForm.innerHTML += ` <input type="text" id="comment-input" placeholder="Comment">  <input type="submit">`
     commentForm.setAttribute("id", "comment-form") 
     commentForm.dataset.id = this.id
 
@@ -208,26 +210,30 @@ class Bulletin {
      // commentUl.setAttribute("id", "comment-ul")
 
     commentForm.addEventListener("submit", Comment.submitComment) 
-    this.createDiv.append(commentForm)
+
+    const createUl = document.createElement('ul')
+    createUl.setAttribute("id", "comment-ul") 
+
+    this.comments.forEach(comment => {
+      comment.renderComment(createUl)
+    })
+    this.createDiv.append(commentForm, createUl) 
+    //this.divTag.append(commentForm)
   }   
 
-  // createComments(){ 
-  //   const createCommentList = document.createElement('ul')
-  //   createCommentList.setAttribute("id", "comment-ul") 
-    
+  
+  renderDelete(){ 
+   const deleteBtn = document.createElement("button") 
+    deleteBtn.innerText = "DELETE" 
+    //deleteBtn.dataset.id = this.id
+    deleteBtn.addEventListener("click", this.deleteBulletin) 
+    this.createDiv.append(deleteBtn) 
+    //this.divTag.append(deleteBtn)
+  } 
 
-  //   // this.comments.data.forEach(comment => { 
-  //   //   console>log(comment)
-  //   //   const c = new Comment(comment) 
-  //   //   console.log(c)
-  //   //   c.renderComment(commentList)
-  //   // })
-    
-  //   this.createDiv.append(createCommentList)
-//}
+ 
 
-
-
+ 
  
 
   static submitBulletin(e){
@@ -258,7 +264,7 @@ class Bulletin {
   //debugger; 
    //console.log(e.target.previousSibling) 
   console.log(e.target.parentElement)
-
+  console.log(e.target)
    //let deleteId = parseInt(e.target.dataset.id) 
   let deleteId = this.parentElement.dataset.id 
   //   // // console.log(deleteId)

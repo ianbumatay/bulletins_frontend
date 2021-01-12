@@ -8,5 +8,5 @@ const bulletinForm = document.querySelector("#bulletin-form")
 bulletinForm.addEventListener("submit", Bulletin.submitBulletin) 
    
 Bulletin.fetchBulletin()  
-Comment.fetchComment() 
+//Comment.fetchComment() 
 
