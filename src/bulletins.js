@@ -3,8 +3,9 @@ class Bulletin {
   constructor(bulletin){
     this.id = bulletin.id
     this.content = bulletin.attributes.content
-    this.comments = []
-    
+    //this.comments = []
+
+    this.comments = bulletin.attributes.comments
   }
 
   static fetchBulletin(){
@@ -14,13 +15,14 @@ class Bulletin {
     
         for(const bulletin of bulletins){
         
-          let b = new Bulletin(bulletin.data) 
+         // let b = new Bulletin(bulletin.data) 
          
-          bulletin.data.attributes.comments.forEach(comment => {
-          const c = new Comment(comment) 
-          b.comments.push(c) 
+          // bulletin.data.attributes.comments.forEach(comment => {
+          // const c = new Comment(comment) 
+          // b.comments.push(c) 
         
-        })
+        //}) 
+        let b = new Bulletin(bulletin.data) 
         b.render();
       }
     })
@@ -40,7 +42,8 @@ class Bulletin {
 
     this.renderBulletin()
     this.renderCommentForm() 
-    this.renderDelete() 
+    this.renderDelete()  
+    //sthis.manyFunction()
   } 
 
   renderBulletin(){ 
@@ -63,8 +66,9 @@ class Bulletin {
     const createUl = document.createElement('ul')
     createUl.setAttribute("id", "comment-ul") 
 
-    this.comments.forEach(comment => {
-      comment.renderComment(createUl)
+    this.comments.forEach(comment => { 
+      let newComment = new Comment(comment)
+      newComment.renderComment(createUl)
     })
     this.createDiv.append(commentForm, createUl) 
   }   
@@ -109,7 +113,12 @@ class Bulletin {
          method: "DELETE" 
       })
     this.parentElement.remove()   
-  }
+  } 
+
+
+
+
+
 
 
 }
