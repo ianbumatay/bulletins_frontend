@@ -12,7 +12,7 @@ static submitComment(e) {
   e.preventDefault()
 
   const userInput = e.target.children[0].value 
-  const commentList = e.target.nextElementSibling 
+  const commentList = e.target.nextElementSibling  
   const bulletinId = e.target.parentElement.dataset.id  
 
     const options = {
@@ -29,7 +29,7 @@ static submitComment(e) {
       .then(comment => {
         
       let c = new Comment(comment.data.attributes) 
-        c.renderComment(commentList)
+        c.renderComment(commentList) 
      })  
      e.target.reset()
   }    
@@ -37,14 +37,13 @@ static submitComment(e) {
 
 
   
-  renderComment(commentList){  
-
+  renderComment(commentList){   
     const createLi = document.createElement("li")
     createLi.dataset.id = this.bulletin_id
     createLi.innerText = this.content
   
      commentList.append(createLi)  
- }  
+    }  
 
 
 }
